@@ -90,7 +90,7 @@ use old versions of Upstart and do not supply the start-stop-daemon utility.
 Copy tripcoind.init to /etc/init.d/tripcoind. Test by running "service tripcoind start".
 
 Using this script, you can adjust the path and flags to the tripcoind program by 
-setting the BITCOIND and FLAGS environment variables in the file 
+setting the TRIPCOIND and FLAGS environment variables in the file 
 /etc/sysconfig/tripcoind. You can also use the DAEMONOPTS environment variable here.
 
 5. Auto-respawn

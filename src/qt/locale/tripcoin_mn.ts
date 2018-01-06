@@ -121,7 +121,7 @@
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>TripcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>&amp;Зурвас хавсаргах...</translation>

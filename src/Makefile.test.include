@@ -31,7 +31,7 @@ RAW_TEST_FILES = test/data/alertTests.raw
 
 GENERATED_TEST_FILES = $(JSON_TEST_FILES:.json=.json.h) $(RAW_TEST_FILES:.raw=.raw.h)
 
-BITCOIN_TESTS =\
+TRIPCOIN_TESTS =\
   test/arith_uint256_tests.cpp \
   test/bignum.h \
   test/alert_tests.cpp \
@@ -78,30 +78,30 @@ BITCOIN_TESTS =\
   test/util_tests.cpp
 
 if ENABLE_WALLET
-BITCOIN_TESTS += \
+TRIPCOIN_TESTS += \
   test/accounting_tests.cpp \
   wallet/test/wallet_tests.cpp \
   test/rpc_wallet_tests.cpp
 endif
 
-test_test_tripcoin_SOURCES = $(BITCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
-test_test_tripcoin_CPPFLAGS = $(BITCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS)
-test_test_tripcoin_LDADD = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
+test_test_tripcoin_SOURCES = $(TRIPCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
+test_test_tripcoin_CPPFLAGS = $(TRIPCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS)
+test_test_tripcoin_LDADD = $(LIBTRIPCOIN_SERVER) $(LIBTRIPCOIN_CLI) $(LIBTRIPCOIN_COMMON) $(LIBTRIPCOIN_UTIL) $(LIBTRIPCOIN_CRYPTO) $(LIBTRIPCOIN_UNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(BOOST_UNIT_TEST_FRAMEWORK_LIB) $(LIBSECP256K1)
 if ENABLE_WALLET
-test_test_tripcoin_LDADD += $(LIBBITCOIN_WALLET)
+test_test_tripcoin_LDADD += $(LIBTRIPCOIN_WALLET)
 endif
 
-test_test_tripcoin_LDADD += $(LIBBITCOIN_CONSENSUS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+test_test_tripcoin_LDADD += $(LIBTRIPCOIN_CONSENSUS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
 test_test_tripcoin_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
 
 nodist_test_test_tripcoin_SOURCES = $(GENERATED_TEST_FILES)
 
-$(BITCOIN_TESTS): $(GENERATED_TEST_FILES)
+$(TRIPCOIN_TESTS): $(GENERATED_TEST_FILES)
 
-CLEAN_BITCOIN_TEST = test/*.gcda test/*.gcno $(GENERATED_TEST_FILES)
+CLEAN_TRIPCOIN_TEST = test/*.gcda test/*.gcno $(GENERATED_TEST_FILES)
 
-CLEANFILES += $(CLEAN_BITCOIN_TEST)
+CLEANFILES += $(CLEAN_TRIPCOIN_TEST)
 
 tripcoin_test: $(TEST_BINARY)
 
@@ -109,7 +109,7 @@ tripcoin_test_check: $(TEST_BINARY) FORCE
 	$(MAKE) check-TESTS TESTS=$^
 
 tripcoin_test_clean : FORCE
-	rm -f $(CLEAN_BITCOIN_TEST) $(test_test_tripcoin_OBJECTS) $(TEST_BINARY)
+	rm -f $(CLEAN_TRIPCOIN_TEST) $(test_test_tripcoin_OBJECTS) $(TEST_BINARY)
 
 check-local:
 	@echo "Running test/tripcoin-util-test.py..."

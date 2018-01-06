@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_OPTIONSMODEL_H
-#define BITCOIN_QT_OPTIONSMODEL_H
+#ifndef TRIPCOIN_QT_OPTIONSMODEL_H
+#define TRIPCOIN_QT_OPTIONSMODEL_H
 
 #include "amount.h"
 
@@ -34,7 +34,7 @@ public:
         ProxyUse,               // bool
         ProxyIP,                // QString
         ProxyPort,              // int
-        DisplayUnit,            // BitcoinUnits::Unit
+        DisplayUnit,            // TripcoinUnits::Unit
         ThirdPartyTxUrls,       // QString
         Language,               // QString
         CoinControlFeatures,    // bool
@@ -86,4 +86,4 @@ signals:
     void coinControlFeaturesChanged(bool);
 };
 
-#endif // BITCOIN_QT_OPTIONSMODEL_H
+#endif // TRIPCOIN_QT_OPTIONSMODEL_H

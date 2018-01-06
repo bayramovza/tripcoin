@@ -67,11 +67,11 @@
     </message>
     <message>
         <source>These are your Tripcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Tohle jsou tvé Bitcoinové adresy pro posílání plateb. Před odesláním mincí si vždy zkontroluj částku a cílovou adresu.</translation>
+        <translation>Tohle jsou tvé Tripcoinové adresy pro posílání plateb. Před odesláním mincí si vždy zkontroluj částku a cílovou adresu.</translation>
     </message>
     <message>
         <source>These are your Tripcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Tohle jsou tvé Bitcoinové adresy pro příjem plateb. Je doporučené používat pokaždé novou adresu pro každou transakci.</translation>
+        <translation>Tohle jsou tvé Tripcoinové adresy pro příjem plateb. Je doporučené používat pokaždé novou adresu pro každou transakci.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -160,8 +160,8 @@
         <translation>Potvrď zašifrování peněženky</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
-        <translation>Upozornění: Pokud si zašifruješ peněženku a ztratíš či zapomeneš heslo, &lt;b&gt;PŘIJDEŠ O VŠECHNY BITCOINY&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TRIPCOINS&lt;/b&gt;!</source>
+        <translation>Upozornění: Pokud si zašifruješ peněženku a ztratíš či zapomeneš heslo, &lt;b&gt;PŘIJDEŠ O VŠECHNY TRIPCOINY&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -213,7 +213,7 @@
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>TripcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Po&amp;depiš zprávu...</translation>
@@ -300,7 +300,7 @@
     </message>
     <message>
         <source>Send coins to a Tripcoin address</source>
-        <translation>Pošli mince na Bitcoinovou adresu</translation>
+        <translation>Pošli mince na Tripcoinovou adresu</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -356,11 +356,11 @@
     </message>
     <message>
         <source>Sign messages with your Tripcoin addresses to prove you own them</source>
-        <translation>Podepiš zprávy svými Bitcoinovými adresami, čímž prokážeš, že jsi jejich vlastníkem</translation>
+        <translation>Podepiš zprávy svými Tripcoinovými adresami, čímž prokážeš, že jsi jejich vlastníkem</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Tripcoin addresses</source>
-        <translation>Ověř zprávy, aby ses ujistil, že byly podepsány danými Bitcoinovými adresami</translation>
+        <translation>Ověř zprávy, aby ses ujistil, že byly podepsány danými Tripcoinovými adresami</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -408,11 +408,11 @@
     </message>
     <message>
         <source>Show the Tripcoin Core help message to get a list with possible Tripcoin command-line options</source>
-        <translation>Seznam argumentů Bitcoinu pro příkazovou řádku získáš v nápovědě Bitcoinu Core</translation>
+        <translation>Seznam argumentů Tripcoinu pro příkazovou řádku získáš v nápovědě Tripcoinu Core</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Tripcoin network</source>
-        <translation><numerusform>%n aktivní spojení do Bitcoinové sítě</numerusform><numerusform>%n aktivní spojení do Bitcoinové sítě</numerusform><numerusform>%n aktivních spojení do Bitcoinové sítě</numerusform></translation>
+        <translation><numerusform>%n aktivní spojení do Tripcoinové sítě</numerusform><numerusform>%n aktivní spojení do Tripcoinové sítě</numerusform><numerusform>%n aktivních spojení do Tripcoinové sítě</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -749,7 +749,7 @@
     </message>
     <message>
         <source>The entered address "%1" is not a valid Tripcoin address.</source>
-        <translation>Zadaná adresa "%1" není platná Bitcoinová adresa.</translation>
+        <translation>Zadaná adresa "%1" není platná Tripcoinová adresa.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -976,7 +976,7 @@
     </message>
     <message>
         <source>Connect to the Tripcoin network through a SOCKS5 proxy.</source>
-        <translation>Připojí se do Bitcoinové sítě přes SOCKS5 proxy.</translation>
+        <translation>Připojí se do Tripcoinové sítě přes SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1071,7 +1071,7 @@
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Tripcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Zobrazené informace nemusí být aktuální. Tvá peněženka se automaticky sesynchronizuje s Bitcoinovou sítí, jakmile se s ní spojí. Zatím ale ještě není synchronizace dokončena.</translation>
+        <translation>Zobrazené informace nemusí být aktuální. Tvá peněženka se automaticky sesynchronizuje s Tripcoinovou sítí, jakmile se s ní spojí. Zatím ale ještě není synchronizace dokončena.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1178,7 +1178,7 @@
     </message>
     <message>
         <source>URI cannot be parsed! This can be caused by an invalid Tripcoin address or malformed URI parameters.</source>
-        <translation>Nepodařilo se analyzovat URI! Důvodem může být neplatná Bitcoinová adresa nebo poškozené parametry URI.</translation>
+        <translation>Nepodařilo se analyzovat URI! Důvodem může být neplatná Tripcoinová adresa nebo poškozené parametry URI.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1244,7 +1244,7 @@
     </message>
     <message>
         <source>Enter a Tripcoin address (e.g. %1)</source>
-        <translation>Zadej Bitcoinovou adresu (např. %1)</translation>
+        <translation>Zadej Tripcoinovou adresu (např. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1537,7 +1537,7 @@
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Tripcoin network.</source>
-        <translation>Volitelná zpráva, která se připojí k platebnímu požadavku a která se zobrazí, když se požadavek otevře. Poznámka: Tahle zpráva se neposílá s platbou po Bitcoinové síti.</translation>
+        <translation>Volitelná zpráva, která se připojí k platebnímu požadavku a která se zobrazí, když se požadavek otevře. Poznámka: Tahle zpráva se neposílá s platbou po Tripcoinové síti.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1906,7 +1906,7 @@
     </message>
     <message>
         <source>Warning: Invalid Tripcoin address</source>
-        <translation>Upozornění: Neplatná Bitcoinová adresa</translation>
+        <translation>Upozornění: Neplatná Tripcoinová adresa</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1957,7 +1957,7 @@
     </message>
     <message>
         <source>The Tripcoin address to send the payment to</source>
-        <translation>Bitcoinová adresa příjemce</translation>
+        <translation>Tripcoinová adresa příjemce</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1985,7 +1985,7 @@
     </message>
     <message>
         <source>A message that was attached to the tripcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Tripcoin network.</source>
-        <translation>Zpráva, která byla připojena k tripcoin: URI a která se ti pro přehled uloží k transakci. Poznámka: Tahle zpráva se neposílá s platbou po Bitcoinové síti.</translation>
+        <translation>Zpráva, která byla připojena k tripcoin: URI a která se ti pro přehled uloží k transakci. Poznámka: Tahle zpráva se neposílá s platbou po Tripcoinové síti.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2019,7 +2019,7 @@
     </message>
     <message>
         <source>The Tripcoin address to sign the message with</source>
-        <translation>Bitcoinová adresa, kterou se zpráva podepíše</translation>
+        <translation>Tripcoinová adresa, kterou se zpráva podepíše</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2051,7 +2051,7 @@
     </message>
     <message>
         <source>Sign the message to prove you own this Tripcoin address</source>
-        <translation>Podepiš zprávu, čímž prokážeš, že jsi vlastníkem této Bitcoinové adresy</translation>
+        <translation>Podepiš zprávu, čímž prokážeš, že jsi vlastníkem této Tripcoinové adresy</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2071,11 +2071,11 @@
     </message>
     <message>
         <source>The Tripcoin address the message was signed with</source>
-        <translation>Bitcoinová adresa, kterou je zpráva podepsána</translation>
+        <translation>Tripcoinová adresa, kterou je zpráva podepsána</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Tripcoin address</source>
-        <translation>Ověř zprávu, aby ses ujistil, že byla podepsána danou Bitcoinovou adresou</translation>
+        <translation>Ověř zprávu, aby ses ujistil, že byla podepsána danou Tripcoinovou adresou</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>

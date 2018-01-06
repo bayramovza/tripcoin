@@ -385,12 +385,12 @@ top_srcdir = @top_srcdir@
 ACLOCAL_AMFLAGS = -I build-aux/m4
 SUBDIRS = src
 GZIP_ENV = "-9n"
-@BUILD_BITCOIN_LIBS_TRUE@pkgconfigdir = $(libdir)/pkgconfig
-@BUILD_BITCOIN_LIBS_TRUE@pkgconfig_DATA = libtripcoinconsensus.pc
-BITCOIND_BIN = $(top_builddir)/src/tripcoind$(EXEEXT)
-BITCOIN_QT_BIN = $(top_builddir)/src/qt/tripcoin-qt$(EXEEXT)
-BITCOIN_CLI_BIN = $(top_builddir)/src/tripcoin-cli$(EXEEXT)
-BITCOIN_WIN_INSTALLER = $(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
+@BUILD_TRIPCOIN_LIBS_TRUE@pkgconfigdir = $(libdir)/pkgconfig
+@BUILD_TRIPCOIN_LIBS_TRUE@pkgconfig_DATA = libtripcoinconsensus.pc
+TRIPCOIND_BIN = $(top_builddir)/src/tripcoind$(EXEEXT)
+TRIPCOIN_QT_BIN = $(top_builddir)/src/qt/tripcoin-qt$(EXEEXT)
+TRIPCOIN_CLI_BIN = $(top_builddir)/src/tripcoin-cli$(EXEEXT)
+TRIPCOIN_WIN_INSTALLER = $(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
 OSX_APP = Tripcoin-Qt.app
 OSX_DMG = Tripcoin-Core.dmg
 OSX_BACKGROUND_IMAGE = background.tiff
@@ -424,7 +424,7 @@ OSX_APP_BUILT = $(OSX_APP)/Contents/PkgInfo $(OSX_APP)/Contents/Resources/empty.
 @BUILD_DARWIN_FALSE@APP_DIST_DIR = $(top_builddir)/dist
 @BUILD_DARWIN_FALSE@APP_DIST_EXTRAS = $(APP_DIST_DIR)/.background/$(OSX_BACKGROUND_IMAGE) $(APP_DIST_DIR)/.DS_Store $(APP_DIST_DIR)/Applications
 EXTRA_DIST = $(top_srcdir)/share/genbuild.sh qa/pull-tester/rpc-tests.sh qa/pull-tester/run-tripcoin-cli qa/rpc-tests $(DIST_DOCS) $(WINDOWS_PACKAGING) $(OSX_PACKAGING)
-CLEANFILES = $(OSX_DMG) $(BITCOIN_WIN_INSTALLER)
+CLEANFILES = $(OSX_DMG) $(TRIPCOIN_WIN_INSTALLER)
 all: all-recursive
 
 .SUFFIXES:
@@ -984,11 +984,11 @@ distcheck-hook:
 distcleancheck:
 	@:
 
-$(BITCOIN_WIN_INSTALLER): all-recursive
+$(TRIPCOIN_WIN_INSTALLER): all-recursive
 	$(MKDIR_P) $(top_builddir)/release
-	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(BITCOIND_BIN) $(top_builddir)/release
-	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(BITCOIN_QT_BIN) $(top_builddir)/release
-	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(BITCOIN_CLI_BIN) $(top_builddir)/release
+	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(TRIPCOIND_BIN) $(top_builddir)/release
+	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(TRIPCOIN_QT_BIN) $(top_builddir)/release
+	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(TRIPCOIN_CLI_BIN) $(top_builddir)/release
 	@test -f $(MAKENSIS) && $(MAKENSIS) -V2 $(top_builddir)/share/setup.nsi || \
 	  echo error: could not build $@
 	@echo built $@
@@ -1012,7 +1012,7 @@ $(OSX_APP)/Contents/Resources/tripcoin.icns: $(OSX_INSTALLER_ICONS)
 	$(MKDIR_P) $(@D)
 	$(INSTALL_DATA) $< $@
 
-$(OSX_APP)/Contents/MacOS/Tripcoin-Qt: $(BITCOIN_QT_BIN)
+$(OSX_APP)/Contents/MacOS/Tripcoin-Qt: $(TRIPCOIN_QT_BIN)
 	$(MKDIR_P) $(@D)
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM)  $< $@
 
@@ -1047,15 +1047,15 @@ $(OSX_APP)/Contents/Resources/Base.lproj/InfoPlist.strings: $(OSX_BASE_LPROJ_DIR
 
 @TARGET_DARWIN_TRUE@appbundle: $(OSX_APP_BUILT)
 @TARGET_DARWIN_TRUE@deploy: $(OSX_DMG)
-@TARGET_WINDOWS_TRUE@deploy: $(BITCOIN_WIN_INSTALLER)
+@TARGET_WINDOWS_TRUE@deploy: $(TRIPCOIN_WIN_INSTALLER)
 
-$(BITCOIN_QT_BIN): FORCE
+$(TRIPCOIN_QT_BIN): FORCE
 	$(MAKE) -C src qt/$(@F)
 
-$(BITCOIND_BIN): FORCE
+$(TRIPCOIND_BIN): FORCE
 	$(MAKE) -C src $(@F)
 
-$(BITCOIN_CLI_BIN): FORCE
+$(TRIPCOIN_CLI_BIN): FORCE
 	$(MAKE) -C src $(@F)
 
 @USE_LCOV_TRUE@baseline.info:
@@ -1085,7 +1085,7 @@ $(BITCOIN_CLI_BIN): FORCE
 @USE_LCOV_TRUE@block_test.info: test_tripcoin_filtered.info
 @USE_LCOV_TRUE@	$(MKDIR_P) qa/tmp
 @USE_LCOV_TRUE@	-@TIMEOUT=15 qa/pull-tester/run-tripcoind-for-test.sh $(JAVA) -jar $(JAVA_COMPARISON_TOOL) qa/tmp/compTool 0
-@USE_LCOV_TRUE@	$(LCOV) -c -d $(abs_builddir)/src --t BitcoinJBlockTest -o $@
+@USE_LCOV_TRUE@	$(LCOV) -c -d $(abs_builddir)/src --t TripcoinJBlockTest -o $@
 @USE_LCOV_TRUE@	$(LCOV) -z -d $(abs_builddir)/src
 @USE_LCOV_TRUE@	$(LCOV) -z -d $(abs_builddir)/src/leveldb
 

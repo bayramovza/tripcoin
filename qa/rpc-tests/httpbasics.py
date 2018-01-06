@@ -7,7 +7,7 @@
 # Test REST interface
 #
 
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import TripcoinTestFramework
 from test_framework.util import *
 import base64
 
@@ -20,7 +20,7 @@ try:
 except ImportError:
     import urlparse
 
-class HTTPBasicsTest (BitcoinTestFramework):        
+class HTTPBasicsTest (TripcoinTestFramework):        
     def setup_nodes(self):
         return start_nodes(4, self.options.tmpdir, extra_args=[['-rpckeepalive=1'], ['-rpckeepalive=0'], [], []])
 

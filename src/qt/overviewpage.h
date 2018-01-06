@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_OVERVIEWPAGE_H
-#define BITCOIN_QT_OVERVIEWPAGE_H
+#ifndef TRIPCOIN_QT_OVERVIEWPAGE_H
+#define TRIPCOIN_QT_OVERVIEWPAGE_H
 
 #include "amount.h"
 
@@ -63,4 +63,4 @@ private slots:
     void updateWatchOnlyLabels(bool showWatchOnly);
 };
 
-#endif // BITCOIN_QT_OVERVIEWPAGE_H
+#endif // TRIPCOIN_QT_OVERVIEWPAGE_H

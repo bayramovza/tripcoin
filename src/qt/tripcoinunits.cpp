@@ -8,79 +8,79 @@
 
 #include <QStringList>
 
-BitcoinUnits::BitcoinUnits(QObject *parent):
+TripcoinUnits::TripcoinUnits(QObject *parent):
         QAbstractListModel(parent),
         unitlist(availableUnits())
 {
 }
 
-QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
+QList<TripcoinUnits::Unit> TripcoinUnits::availableUnits()
 {
-    QList<BitcoinUnits::Unit> unitlist;
+    QList<TripcoinUnits::Unit> unitlist;
     unitlist.append(TPC);
-    unitlist.append(mBTC);
-    unitlist.append(uBTC);
+    unitlist.append(mTPC);
+    unitlist.append(uTPC);
     return unitlist;
 }
 
-bool BitcoinUnits::valid(int unit)
+bool TripcoinUnits::valid(int unit)
 {
     switch(unit)
     {
     case TPC:
-    case mBTC:
-    case uBTC:
+    case mTPC:
+    case uTPC:
         return true;
     default:
         return false;
     }
 }
 
-QString BitcoinUnits::name(int unit)
+QString TripcoinUnits::name(int unit)
 {
     switch(unit)
     {
     case TPC: return QString("TPC");
-    case mBTC: return QString("mBTC");
-    case uBTC: return QString::fromUtf8("μBTC");
+    case mTPC: return QString("mTPC");
+    case uTPC: return QString::fromUtf8("μBTC");
     default: return QString("???");
     }
 }
 
-QString BitcoinUnits::description(int unit)
+QString TripcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case TPC: return QString("Bitcoins");
-    case mBTC: return QString("Milli-Bitcoins (1 / 1" THIN_SP_UTF8 "000)");
-    case uBTC: return QString("Micro-Bitcoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case TPC: return QString("Tripcoins");
+    case mTPC: return QString("Milli-Tripcoins (1 / 1" THIN_SP_UTF8 "000)");
+    case uTPC: return QString("Micro-Tripcoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
 
-qint64 BitcoinUnits::factor(int unit)
+qint64 TripcoinUnits::factor(int unit)
 {
     switch(unit)
     {
     case TPC:  return 100000000;
-    case mBTC: return 100000;
-    case uBTC: return 100;
+    case mTPC: return 100000;
+    case uTPC: return 100;
     default:   return 100000000;
     }
 }
 
-int BitcoinUnits::decimals(int unit)
+int TripcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
     case TPC: return 8;
-    case mBTC: return 5;
-    case uBTC: return 2;
+    case mTPC: return 5;
+    case uTPC: return 2;
     default: return 0;
     }
 }
 
-QString BitcoinUnits::format(int unit, const CAmount& nIn, bool fPlus, SeparatorStyle separators)
+QString TripcoinUnits::format(int unit, const CAmount& nIn, bool fPlus, SeparatorStyle separators)
 {
     // Note: not using straight sprintf here because we do NOT want
     // localized number formatting.
@@ -111,10 +111,10 @@ QString BitcoinUnits::format(int unit, const CAmount& nIn, bool fPlus, Separator
 }
 
 
-// TODO: Review all remaining calls to BitcoinUnits::formatWithUnit to
+// TODO: Review all remaining calls to TripcoinUnits::formatWithUnit to
 // TODO: determine whether the output is used in a plain text context
 // TODO: or an HTML context (and replace with
-// TODO: BtcoinUnits::formatHtmlWithUnit in the latter case). Hopefully
+// TODO: TPCoinUnits::formatHtmlWithUnit in the latter case). Hopefully
 // TODO: there aren't instances where the result could be used in
 // TODO: either context.
 
@@ -126,12 +126,12 @@ QString BitcoinUnits::format(int unit, const CAmount& nIn, bool fPlus, Separator
 // Please take care to use formatHtmlWithUnit instead, when
 // appropriate.
 
-QString BitcoinUnits::formatWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators)
+QString TripcoinUnits::formatWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators)
 {
     return format(unit, amount, plussign, separators) + QString(" ") + name(unit);
 }
 
-QString BitcoinUnits::formatHtmlWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators)
+QString TripcoinUnits::formatHtmlWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators)
 {
     QString str(formatWithUnit(unit, amount, plussign, separators));
     str.replace(QChar(THIN_SP_CP), QString(THIN_SP_HTML));
@@ -139,7 +139,7 @@ QString BitcoinUnits::formatHtmlWithUnit(int unit, const CAmount& amount, bool p
 }
 
 
-bool BitcoinUnits::parse(int unit, const QString &value, CAmount *val_out)
+bool TripcoinUnits::parse(int unit, const QString &value, CAmount *val_out)
 {
     if(!valid(unit) || value.isEmpty())
         return false; // Refuse to parse invalid unit or empty string
@@ -178,23 +178,23 @@ bool BitcoinUnits::parse(int unit, const QString &value, CAmount *val_out)
     return ok;
 }
 
-QString BitcoinUnits::getAmountColumnTitle(int unit)
+QString TripcoinUnits::getAmountColumnTitle(int unit)
 {
     QString amountTitle = QObject::tr("Amount");
-    if (BitcoinUnits::valid(unit))
+    if (TripcoinUnits::valid(unit))
     {
-        amountTitle += " ("+BitcoinUnits::name(unit) + ")";
+        amountTitle += " ("+TripcoinUnits::name(unit) + ")";
     }
     return amountTitle;
 }
 
-int BitcoinUnits::rowCount(const QModelIndex &parent) const
+int TripcoinUnits::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return unitlist.size();
 }
 
-QVariant BitcoinUnits::data(const QModelIndex &index, int role) const
+QVariant TripcoinUnits::data(const QModelIndex &index, int role) const
 {
     int row = index.row();
     if(row >= 0 && row < unitlist.size())
@@ -214,7 +214,7 @@ QVariant BitcoinUnits::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-CAmount BitcoinUnits::maxMoney()
+CAmount TripcoinUnits::maxMoney()
 {
     return MAX_MONEY;
 }

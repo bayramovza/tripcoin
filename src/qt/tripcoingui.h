@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_BITCOINGUI_H
-#define BITCOIN_QT_BITCOINGUI_H
+#ifndef TRIPCOIN_QT_TRIPCOINGUI_H
+#define TRIPCOIN_QT_TRIPCOINGUI_H
 
 #if defined(HAVE_CONFIG_H)
 #include "config/tripcoin-config.h"
@@ -40,15 +40,15 @@ QT_END_NAMESPACE
   Tripcoin GUI main class. This class represents the main window of the Tripcoin UI. It communicates with both the client and
   wallet models to give the user an up-to-date view of the current core state.
 */
-class BitcoinGUI : public QMainWindow
+class TripcoinGUI : public QMainWindow
 {
     Q_OBJECT
 
 public:
     static const QString DEFAULT_WALLET;
 
-    explicit BitcoinGUI(const NetworkStyle *networkStyle, QWidget *parent = 0);
-    ~BitcoinGUI();
+    explicit TripcoinGUI(const NetworkStyle *networkStyle, QWidget *parent = 0);
+    ~TripcoinGUI();
 
     /** Set the client model.
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
@@ -239,4 +239,4 @@ private slots:
     void onMenuSelection(QAction* action);
 };
 
-#endif // BITCOIN_QT_BITCOINGUI_H
+#endif // TRIPCOIN_QT_TRIPCOINGUI_H

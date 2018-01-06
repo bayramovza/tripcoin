@@ -8,7 +8,7 @@ from binascii import hexlify
 import time, os
 
 from test_framework.socks5 import Socks5Configuration, Socks5Command, Socks5Server, AddressType
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import TripcoinTestFramework
 from test_framework.util import *
 '''
 Test plan:
@@ -34,7 +34,7 @@ addnode connect to onion
 addnode connect to generic DNS name
 '''
 
-class ProxyTest(BitcoinTestFramework):        
+class ProxyTest(TripcoinTestFramework):        
     def __init__(self):
         # Create two proxies on different ports
         # ... one unauthenticated

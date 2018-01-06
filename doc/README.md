@@ -35,7 +35,7 @@ Drag Tripcoin-Qt to your applications folder, and then run Tripcoin-Qt.
 * See the documentation at the [Tripcoin Wiki](https://en.tripcoin.it/wiki/Main_Page)
 for help and more information.
 * Ask for help on [#tripcoin](http://webchat.freenode.net?channels=tripcoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=tripcoin).
-* Ask for help on the [BitcoinTalk](https://tripcointalk.org/) forums, in the [Technical Support board](https://tripcointalk.org/index.php?board=4.0).
+* Ask for help on the [TripcoinTalk](https://tripcointalk.org/) forums, in the [Technical Support board](https://tripcointalk.org/index.php?board=4.0).
 
 Building
 ---------------------
@@ -62,7 +62,7 @@ The Tripcoin repo's [root README](https://github.com/tripcoin/tripcoin/blob/mast
 - [Dnsseed Policy](dnsseed-policy.md)
 
 ### Resources
-* Discuss on the [BitcoinTalk](https://tripcointalk.org/) forums, in the [Development & Technical Discussion board](https://tripcointalk.org/index.php?board=6.0).
+* Discuss on the [TripcoinTalk](https://tripcointalk.org/) forums, in the [Development & Technical Discussion board](https://tripcointalk.org/index.php?board=6.0).
 * Discuss on [#tripcoin-dev](http://webchat.freenode.net/?channels=tripcoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=tripcoin-dev).
 
 ### Miscellaneous

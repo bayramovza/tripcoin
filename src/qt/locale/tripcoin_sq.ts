@@ -145,7 +145,7 @@
     </message>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>TripcoinGUI</name>
     <message>
         <source>Synchronizing with network...</source>
         <translation>Duke u sinkronizuar me rrjetin...</translation>

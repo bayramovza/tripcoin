@@ -46,7 +46,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.tripcoin.BitcoinPayment</string>
+      <string>org.tripcoin.TripcoinPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>tripcoin</string>

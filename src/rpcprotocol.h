@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_RPCPROTOCOL_H
-#define BITCOIN_RPCPROTOCOL_H
+#ifndef TRIPCOIN_RPCPROTOCOL_H
+#define TRIPCOIN_RPCPROTOCOL_H
 
 #include <list>
 #include <map>
@@ -165,4 +165,4 @@ json_spirit::Object JSONRPCReplyObj(const json_spirit::Value& result, const json
 std::string JSONRPCReply(const json_spirit::Value& result, const json_spirit::Value& error, const json_spirit::Value& id);
 json_spirit::Object JSONRPCError(int code, const std::string& message);
 
-#endif // BITCOIN_RPCPROTOCOL_H
+#endif // TRIPCOIN_RPCPROTOCOL_H

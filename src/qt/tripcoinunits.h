@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_BITCOINUNITS_H
-#define BITCOIN_QT_BITCOINUNITS_H
+#ifndef TRIPCOIN_QT_TRIPCOINUNITS_H
+#define TRIPCOIN_QT_TRIPCOINUNITS_H
 
 #include "amount.h"
 
@@ -44,12 +44,12 @@
 /** Tripcoin unit definitions. Encapsulates parsing and formatting
    and serves as list model for drop-down selection boxes.
 */
-class BitcoinUnits: public QAbstractListModel
+class TripcoinUnits: public QAbstractListModel
 {
     Q_OBJECT
 
 public:
-    explicit BitcoinUnits(QObject *parent);
+    explicit TripcoinUnits(QObject *parent);
 
     /** Tripcoin units.
       @note Source: https://en.tripcoin.it/wiki/Units . Please add only sensible ones
@@ -57,8 +57,8 @@ public:
     enum Unit
     {
         TPC,
-        mBTC,
-        uBTC
+        mTPC,
+        uTPC
     };
 
     enum SeparatorStyle
@@ -120,8 +120,8 @@ public:
     static CAmount maxMoney();
 
 private:
-    QList<BitcoinUnits::Unit> unitlist;
+    QList<TripcoinUnits::Unit> unitlist;
 };
-typedef BitcoinUnits::Unit BitcoinUnit;
+typedef TripcoinUnits::Unit TripcoinUnit;
 
-#endif // BITCOIN_QT_BITCOINUNITS_H
+#endif // TRIPCOIN_QT_TRIPCOINUNITS_H

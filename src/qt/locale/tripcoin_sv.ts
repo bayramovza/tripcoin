@@ -67,7 +67,7 @@
     </message>
     <message>
         <source>These are your Tripcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Detta är dina Tripcoin adresser för att skicka betalningar. Kolla alltid summan och den mottagande adressen innan du skickar Bitcoins.</translation>
+        <translation>Detta är dina Tripcoin adresser för att skicka betalningar. Kolla alltid summan och den mottagande adressen innan du skickar Tripcoins.</translation>
     </message>
     <message>
         <source>These are your Tripcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
@@ -161,7 +161,7 @@ Var vänlig och försök igen.</translation>
         <translation>Bekräfta kryptering av plånbok</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TRIPCOINS&lt;/b&gt;!</source>
         <translation>VARNING: Om du krypterar din plånbok och glömmer ditt lösenord, kommer du att &lt;b&gt;FÖRLORA ALLA DINA TILLGÅNGAR&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -222,7 +222,7 @@ Var vänlig och försök igen.</translation>
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>TripcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Signera &amp;meddelande...</translation>
@@ -1632,7 +1632,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Tripcoin network.</source>
-        <translation>Ett frivilligt meddelande att bifoga betalningsbegäran, vilket visas när begäran öppnas. NB: Meddelandet kommer inte att sändas med betalningen över Bitcoinnätverket.</translation>
+        <translation>Ett frivilligt meddelande att bifoga betalningsbegäran, vilket visas när begäran öppnas. NB: Meddelandet kommer inte att sändas med betalningen över Tripcoinnätverket.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -2025,7 +2025,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Warning: Invalid Tripcoin address</source>
-        <translation>Varning: Felaktig Bitcoinadress</translation>
+        <translation>Varning: Felaktig Tripcoinadress</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -2076,7 +2076,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>The Tripcoin address to send the payment to</source>
-        <translation>Bitcoinadress att sända betalning till</translation>
+        <translation>Tripcoinadress att sända betalning till</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2116,7 +2116,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>A message that was attached to the tripcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Tripcoin network.</source>
-        <translation>Ett meddelande som bifogades tripcoin-URI, vilket lagras med transaktionen som referens. NB: Meddelandet kommer inte att sändas över Bitcoinnätverket.</translation>
+        <translation>Ett meddelande som bifogades tripcoin-URI, vilket lagras med transaktionen som referens. NB: Meddelandet kommer inte att sändas över Tripcoinnätverket.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2154,7 +2154,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>The Tripcoin address to sign the message with</source>
-        <translation>Bitcoinadress att signera meddelandet med</translation>
+        <translation>Tripcoinadress att signera meddelandet med</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2210,7 +2210,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>The Tripcoin address the message was signed with</source>
-        <translation>Bitcoinadressen som meddelandet signerades med</translation>
+        <translation>Tripcoinadressen som meddelandet signerades med</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Tripcoin address</source>

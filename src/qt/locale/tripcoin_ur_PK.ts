@@ -81,7 +81,7 @@
     </message>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>TripcoinGUI</name>
     <message>
         <source>Error</source>
         <translation>نقص</translation>

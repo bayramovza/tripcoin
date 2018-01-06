@@ -70,7 +70,7 @@ HelpMessageDialog::HelpMessageDialog(QWidget *parent, bool about) :
         cursor.insertText(header);
         cursor.insertBlock();
 
-        QString coreOptions = QString::fromStdString(HelpMessage(HMM_BITCOIN_QT));
+        QString coreOptions = QString::fromStdString(HelpMessage(HMM_TRIPCOIN_QT));
         text = version + "\n" + header + "\n" + coreOptions;
 
         QTextTableFormat tf;
@@ -149,7 +149,7 @@ ShutdownWindow::ShutdownWindow(QWidget *parent, Qt::WindowFlags f):
     setLayout(layout);
 }
 
-void ShutdownWindow::showShutdownWindow(BitcoinGUI *window)
+void ShutdownWindow::showShutdownWindow(TripcoinGUI *window)
 {
     if (!window)
         return;

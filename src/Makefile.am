@@ -17,19 +17,19 @@ $(LIBLEVELDB) $(LIBMEMENV):
           OPT="$(CXXFLAGS) $(CPPFLAGS) -D__STDC_LIMIT_MACROS"
 endif
 
-BITCOIN_CONFIG_INCLUDES=-I$(builddir)/config
-BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
+TRIPCOIN_CONFIG_INCLUDES=-I$(builddir)/config
+TRIPCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
 
-BITCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
+TRIPCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
 
-LIBBITCOIN_SERVER=libtripcoin_server.a
-LIBBITCOIN_WALLET=libtripcoin_wallet.a
-LIBBITCOIN_COMMON=libtripcoin_common.a
-LIBBITCOIN_CLI=libtripcoin_cli.a
-LIBBITCOIN_UTIL=libtripcoin_util.a
-LIBBITCOIN_CRYPTO=crypto/libtripcoin_crypto.a
-LIBBITCOIN_UNIVALUE=univalue/libtripcoin_univalue.a
-LIBBITCOINQT=qt/libtripcoinqt.a
+LIBTRIPCOIN_SERVER=libtripcoin_server.a
+LIBTRIPCOIN_WALLET=libtripcoin_wallet.a
+LIBTRIPCOIN_COMMON=libtripcoin_common.a
+LIBTRIPCOIN_CLI=libtripcoin_cli.a
+LIBTRIPCOIN_UTIL=libtripcoin_util.a
+LIBTRIPCOIN_CRYPTO=crypto/libtripcoin_crypto.a
+LIBTRIPCOIN_UNIVALUE=univalue/libtripcoin_univalue.a
+LIBTRIPCOINQT=qt/libtripcoinqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
@@ -45,31 +45,31 @@ EXTRA_LIBRARIES = \
   libtripcoin_server.a \
   libtripcoin_cli.a
 if ENABLE_WALLET
-BITCOIN_INCLUDES += $(BDB_CPPFLAGS)
+TRIPCOIN_INCLUDES += $(BDB_CPPFLAGS)
 EXTRA_LIBRARIES += libtripcoin_wallet.a
 endif
 
-if BUILD_BITCOIN_LIBS
+if BUILD_TRIPCOIN_LIBS
 lib_LTLIBRARIES = libtripcoinconsensus.la
-LIBBITCOIN_CONSENSUS=libtripcoinconsensus.la
+LIBTRIPCOIN_CONSENSUS=libtripcoinconsensus.la
 else
-LIBBITCOIN_CONSENSUS=
+LIBTRIPCOIN_CONSENSUS=
 endif
 
 bin_PROGRAMS =
 TESTS =
 
-if BUILD_BITCOIND
+if BUILD_TRIPCOIND
   bin_PROGRAMS += tripcoind
 endif
 
-if BUILD_BITCOIN_UTILS
+if BUILD_TRIPCOIN_UTILS
   bin_PROGRAMS += tripcoin-cli tripcoin-tx
 endif
 
 .PHONY: FORCE
 # tripcoin core #
-BITCOIN_CORE_H = \
+TRIPCOIN_CORE_H = \
   addrman.h \
   alert.h \
   amount.h \
@@ -172,7 +172,7 @@ obj/build.h: FORCE
 libtripcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
 # server: shared between tripcoind and tripcoin-qt
-libtripcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
+libtripcoin_server_a_CPPFLAGS = $(TRIPCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
 libtripcoin_server_a_SOURCES = \
   addrman.cpp \
   alert.cpp \
@@ -201,11 +201,11 @@ libtripcoin_server_a_SOURCES = \
   txmempool.cpp \
   validationinterface.cpp \
   $(JSON_H) \
-  $(BITCOIN_CORE_H)
+  $(TRIPCOIN_CORE_H)
 
 # wallet: shared between tripcoind and tripcoin-qt, but only linked
 # when wallet enabled
-libtripcoin_wallet_a_CPPFLAGS = $(BITCOIN_INCLUDES)
+libtripcoin_wallet_a_CPPFLAGS = $(TRIPCOIN_INCLUDES)
 libtripcoin_wallet_a_SOURCES = \
   wallet/crypter.cpp \
   wallet/db.cpp \
@@ -214,10 +214,10 @@ libtripcoin_wallet_a_SOURCES = \
   wallet/wallet.cpp \
   wallet/wallet_ismine.cpp \
   wallet/walletdb.cpp \
-  $(BITCOIN_CORE_H)
+  $(TRIPCOIN_CORE_H)
 
 # crypto primitives library
-crypto_libtripcoin_crypto_a_CPPFLAGS = $(BITCOIN_CONFIG_INCLUDES)
+crypto_libtripcoin_crypto_a_CPPFLAGS = $(TRIPCOIN_CONFIG_INCLUDES)
 crypto_libtripcoin_crypto_a_SOURCES = \
   crypto/common.h \
   crypto/hmac_sha256.cpp \
@@ -242,7 +242,7 @@ univalue_libtripcoin_univalue_a_SOURCES = \
   univalue/univalue_write.cpp
 
 # common: shared between tripcoind, and tripcoin-qt and non-server tools
-libtripcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
+libtripcoin_common_a_CPPFLAGS = $(TRIPCOIN_INCLUDES)
 libtripcoin_common_a_SOURCES = \
   amount.cpp \
   arith_uint256.cpp \
@@ -268,12 +268,12 @@ libtripcoin_common_a_SOURCES = \
   script/script_error.cpp \
   script/sign.cpp \
   script/standard.cpp \
-  $(BITCOIN_CORE_H)
+  $(TRIPCOIN_CORE_H)
 
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libtripcoin_util_a_CPPFLAGS = $(BITCOIN_INCLUDES)
+libtripcoin_util_a_CPPFLAGS = $(TRIPCOIN_INCLUDES)
 libtripcoin_util_a_SOURCES = \
   support/pagelocker.cpp \
   chainparamsbase.cpp \
@@ -290,24 +290,24 @@ libtripcoin_util_a_SOURCES = \
   utilmoneystr.cpp \
   utilstrencodings.cpp \
   utiltime.cpp \
-  $(BITCOIN_CORE_H)
+  $(TRIPCOIN_CORE_H)
 
 if GLIBC_BACK_COMPAT
 libtripcoin_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
 # cli: shared between tripcoin-cli and tripcoin-qt
-libtripcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
+libtripcoin_cli_a_CPPFLAGS = $(TRIPCOIN_INCLUDES)
 libtripcoin_cli_a_SOURCES = \
   rpcclient.cpp \
-  $(BITCOIN_CORE_H)
+  $(TRIPCOIN_CORE_H)
 
 nodist_libtripcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # tripcoind binary #
 tripcoind_SOURCES = tripcoind.cpp
-tripcoind_CPPFLAGS = $(BITCOIN_INCLUDES)
+tripcoind_CPPFLAGS = $(TRIPCOIN_INCLUDES)
 tripcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
@@ -315,11 +315,11 @@ tripcoind_SOURCES += tripcoind-res.rc
 endif
 
 tripcoind_LDADD = \
-  $(LIBBITCOIN_SERVER) \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_UNIVALUE) \
-  $(LIBBITCOIN_UTIL) \
-  $(LIBBITCOIN_CRYPTO) \
+  $(LIBTRIPCOIN_SERVER) \
+  $(LIBTRIPCOIN_COMMON) \
+  $(LIBTRIPCOIN_UNIVALUE) \
+  $(LIBTRIPCOIN_UTIL) \
+  $(LIBTRIPCOIN_CRYPTO) \
   $(LIBLEVELDB) \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
@@ -333,7 +333,7 @@ tripcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUP
 
 # tripcoin-cli binary #
 tripcoin_cli_SOURCES = tripcoin-cli.cpp
-tripcoin_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+tripcoin_cli_CPPFLAGS = $(TRIPCOIN_INCLUDES)
 tripcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
@@ -341,8 +341,8 @@ tripcoin_cli_SOURCES += tripcoin-cli-res.rc
 endif
 
 tripcoin_cli_LDADD = \
-  $(LIBBITCOIN_CLI) \
-  $(LIBBITCOIN_UTIL) \
+  $(LIBTRIPCOIN_CLI) \
+  $(LIBTRIPCOIN_UTIL) \
   $(LIBSECP256K1)
 
 tripcoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS)
@@ -350,7 +350,7 @@ tripcoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS)
 
 # tripcoin-tx binary #
 tripcoin_tx_SOURCES = tripcoin-tx.cpp
-tripcoin_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+tripcoin_tx_CPPFLAGS = $(TRIPCOIN_INCLUDES)
 tripcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
@@ -358,17 +358,17 @@ tripcoin_tx_SOURCES += tripcoin-tx-res.rc
 endif
 
 tripcoin_tx_LDADD = \
-  $(LIBBITCOIN_UNIVALUE) \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_UTIL) \
-  $(LIBBITCOIN_CRYPTO) \
+  $(LIBTRIPCOIN_UNIVALUE) \
+  $(LIBTRIPCOIN_COMMON) \
+  $(LIBTRIPCOIN_UTIL) \
+  $(LIBTRIPCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
 tripcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # tripcoinconsensus library #
-if BUILD_BITCOIN_LIBS
+if BUILD_TRIPCOIN_LIBS
 include_HEADERS = script/tripcoinconsensus.h
 libtripcoinconsensus_la_SOURCES = \
   crypto/hmac_sha512.cpp \
@@ -393,7 +393,7 @@ endif
 
 libtripcoinconsensus_la_LDFLAGS = -no-undefined $(RELDFLAGS)
 libtripcoinconsensus_la_LIBADD = $(CRYPTO_LIBS)
-libtripcoinconsensus_la_CPPFLAGS = $(CRYPTO_CFLAGS) -I$(builddir)/obj -DBUILD_BITCOIN_INTERNAL
+libtripcoinconsensus_la_CPPFLAGS = $(CRYPTO_CFLAGS) -I$(builddir)/obj -DBUILD_TRIPCOIN_INTERNAL
 
 endif
 #

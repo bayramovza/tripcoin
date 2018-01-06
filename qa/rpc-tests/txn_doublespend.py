@@ -7,13 +7,13 @@
 # Test proper accounting with malleable transactions
 #
 
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import TripcoinTestFramework
 from test_framework.util import *
 from decimal import Decimal
 import os
 import shutil
 
-class TxnMallTest(BitcoinTestFramework):
+class TxnMallTest(TripcoinTestFramework):
 
     def add_options(self, parser):
         parser.add_option("--mineblock", dest="mine_block", default=False, action="store_true",

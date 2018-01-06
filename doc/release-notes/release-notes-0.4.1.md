@@ -25,7 +25,7 @@ new private keys are properly backed up you should:
 1. Run Tripcoin and let it rewrite the wallet.dat file
 
 2. Run it again, then ask it for a new tripcoin address.
-wxBitcoin: new address visible on main window
+wxTripcoin: new address visible on main window
 tripcoind: run the 'walletpassphrase' RPC command to unlock the wallet,  then run the 'getnewaddress' RPC command.
 
 3. If your encrypted wallet.dat may have been copied or stolen, send all of your tripcoins to the new tripcoin address.

@@ -160,7 +160,7 @@
         <translation>ウォレットの暗号化を確認する</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TRIPCOINS&lt;/b&gt;!</source>
         <translation>警告: もしもあなたのウォレットを暗号化してパスフレーズを失ってしまったなら、&lt;b&gt;あなたの Tripcoin はすべて失われます&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -221,7 +221,7 @@
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>TripcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>メッセージの署名... (&amp;m)</translation>
@@ -296,7 +296,7 @@
     </message>
     <message>
         <source>Tripcoin Core client</source>
-        <translation>Bitcoinコア クライアント</translation>
+        <translation>Tripcoinコア クライアント</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -348,7 +348,7 @@
     </message>
     <message>
         <source>Show information about Tripcoin Core</source>
-        <translation>Bitcoinコアに関する情報を表示</translation>
+        <translation>Tripcoinコアに関する情報を表示</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -857,7 +857,7 @@
     </message>
     <message>
         <source>About Tripcoin Core</source>
-        <translation>Bitcoinコアについて</translation>
+        <translation>Tripcoinコアについて</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -884,7 +884,7 @@
     </message>
     <message>
         <source>As this is the first time the program is launched, you can choose where Tripcoin Core will store its data.</source>
-        <translation>これはプログラム最初の起動です。Bitcoin Coreがデータを保存する場所を選択して下さい。</translation>
+        <translation>これはプログラム最初の起動です。Tripcoin Coreがデータを保存する場所を選択して下さい。</translation>
     </message>
     <message>
         <source>Tripcoin Core will download and store a copy of the Tripcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
@@ -982,7 +982,7 @@
     </message>
     <message>
         <source>The user interface language can be set here. This setting will take effect after restarting Tripcoin Core.</source>
-        <translation>ユーザ・インタフェイス言語はここで設定できます。この設定はBitcoin Coreの再起動後に有効となります。</translation>
+        <translation>ユーザ・インタフェイス言語はここで設定できます。この設定はTripcoin Coreの再起動後に有効となります。</translation>
     </message>
     <message>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
@@ -1010,11 +1010,11 @@
     </message>
     <message>
         <source>Automatically start Tripcoin Core after logging in to the system.</source>
-        <translation>システムにログインした際、自動的にBitcoin Coreを起動する。</translation>
+        <translation>システムにログインした際、自動的にTripcoin Coreを起動する。</translation>
     </message>
     <message>
         <source>&amp;Start Tripcoin Core on system login</source>
-        <translation>システムへログインした際にBitcoin Coreを起動する (&amp;S)</translation>
+        <translation>システムへログインした際にTripcoin Coreを起動する (&amp;S)</translation>
     </message>
     <message>
         <source>(0 = auto, &lt;0 = leave that many cores free)</source>
@@ -1050,7 +1050,7 @@
     </message>
     <message>
         <source>Connect to the Tripcoin network through a SOCKS5 proxy.</source>
-        <translation>SOCKS5 プロキシ経由でBitcoinネットワークに接続する</translation>
+        <translation>SOCKS5 プロキシ経由でTripcoinネットワークに接続する</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1334,7 +1334,7 @@
     </message>
     <message>
         <source>Enter a Tripcoin address (e.g. %1)</source>
-        <translation>Bitcoinアドレスを入力してください (例 %1)</translation>
+        <translation>Tripcoinアドレスを入力してください (例 %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1444,7 +1444,7 @@
     </message>
     <message>
         <source>Open the Tripcoin Core debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>現在のデータディレクトリからBitcoin Coreのデバッグ用ログファイルを開きます。ログファイルが巨大な場合、数秒かかることがあります。</translation>
+        <translation>現在のデータディレクトリからTripcoin Coreのデバッグ用ログファイルを開きます。ログファイルが巨大な場合、数秒かかることがあります。</translation>
     </message>
     <message>
         <source>Received</source>
@@ -1639,7 +1639,7 @@
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Tripcoin network.</source>
-        <translation>支払リクエストが開始された時に表示される、支払リクエストに添える任意のメッセージです。注意：メッセージはBitcoinネットワークを通じて、支払と共に送られるわけではありません。</translation>
+        <translation>支払リクエストが開始された時に表示される、支払リクエストに添える任意のメッセージです。注意：メッセージはTripcoinネットワークを通じて、支払と共に送られるわけではありません。</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -2032,7 +2032,7 @@
     </message>
     <message>
         <source>Warning: Invalid Tripcoin address</source>
-        <translation>警告：無効なBitcoinアドレスです</translation>
+        <translation>警告：無効なTripcoinアドレスです</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -2083,7 +2083,7 @@
     </message>
     <message>
         <source>The Tripcoin address to send the payment to</source>
-        <translation>支払の送金先Bitcoinアドレス</translation>
+        <translation>支払の送金先Tripcoinアドレス</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2127,7 +2127,7 @@
     </message>
     <message>
         <source>A message that was attached to the tripcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Tripcoin network.</source>
-        <translation>tripcoin: URIに添付されていたメッセージです。これは参照用としてトランザクションとともに保存されます。注意：このメッセージはBitcoinネットワークを通して送信されるわけではありません。</translation>
+        <translation>tripcoin: URIに添付されていたメッセージです。これは参照用としてトランザクションとともに保存されます。注意：このメッセージはTripcoinネットワークを通して送信されるわけではありません。</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2165,7 +2165,7 @@
     </message>
     <message>
         <source>The Tripcoin address to sign the message with</source>
-        <translation>メッセージを署名するBitcoinアドレス</translation>
+        <translation>メッセージを署名するTripcoinアドレス</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2221,7 +2221,7 @@
     </message>
     <message>
         <source>The Tripcoin address the message was signed with</source>
-        <translation>メッセージの署名に使われたBitcoinアドレス</translation>
+        <translation>メッセージの署名に使われたTripcoinアドレス</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Tripcoin address</source>
@@ -3122,7 +3122,7 @@ rpcpassword=%s
 ユーザ名とパスワードは一致してはいけません。
 ファイルが存在しない場合には、所有者のみ読み込み可能なファイルパーミッションでファイルを作成してください。
 またalertnotifyを設定し、問題発生時に通知が行くようにすることをおすすめします;
-例: alertnotify=echo %%s | mail -s "Bitcoinアラート" admin@foo.com
+例: alertnotify=echo %%s | mail -s "Tripcoinアラート" admin@foo.com
 </translation>
     </message>
     <message>
@@ -3131,7 +3131,7 @@ rpcpassword=%s
     </message>
     <message>
         <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Tripcoin Core will not work properly.</source>
-        <translation>警告： あなたのPCの日付と時刻が正しいことを確認して下さい！ もしあなたの時計が正しくなければBitcoin Coreが正確に動作しません。</translation>
+        <translation>警告： あなたのPCの日付と時刻が正しいことを確認して下さい！ もしあなたの時計が正しくなければTripcoin Coreが正確に動作しません。</translation>
     </message>
     <message>
         <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
@@ -3199,7 +3199,7 @@ rpcpassword=%s
     </message>
     <message>
         <source>Initialization sanity check failed. Tripcoin Core is shutting down.</source>
-        <translation>初期化時の健全性チェックに失敗しました。Bitcoin Coreを終了します。</translation>
+        <translation>初期化時の健全性チェックに失敗しました。Tripcoin Coreを終了します。</translation>
     </message>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>

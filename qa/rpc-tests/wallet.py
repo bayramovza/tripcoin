@@ -8,7 +8,7 @@
 # Does the following:
 #   a) creates 3 nodes, with an empty chain (no blocks).
 #   b) node0 mines a block
-#   c) node1 mines 101 blocks, so now nodes 0 and 1 have 50btc, node2 has none. 
+#   c) node1 mines 101 blocks, so now nodes 0 and 1 have 50TPC, node2 has none. 
 #   d) node0 sends 21 TPC to node2, in two transactions (11 TPC, then 10 TPC).
 #   e) node0 mines a block, collects the fee on the second transaction
 #   f) node1 mines 100 blocks, to mature node0's just-mined block
@@ -19,10 +19,10 @@
 #   k) test ResendWalletTransactions - create transactions, startup fourth node, make sure it syncs
 #
 
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import TripcoinTestFramework
 from test_framework.util import *
 
-class WalletTest (BitcoinTestFramework):
+class WalletTest (TripcoinTestFramework):
 
     def setup_chain(self):
         print("Initializing test directory "+self.options.tmpdir)

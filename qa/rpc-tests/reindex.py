@@ -6,11 +6,11 @@
 #
 # Test -reindex with CheckBlockIndex
 #
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import TripcoinTestFramework
 from test_framework.util import *
 import os.path
 
-class ReindexTest(BitcoinTestFramework):
+class ReindexTest(TripcoinTestFramework):
 
     def setup_chain(self):
         print("Initializing test directory "+self.options.tmpdir)

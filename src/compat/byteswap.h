@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_COMPAT_BYTESWAP_H
-#define BITCOIN_COMPAT_BYTESWAP_H
+#ifndef TRIPCOIN_COMPAT_BYTESWAP_H
+#define TRIPCOIN_COMPAT_BYTESWAP_H
 
 #if defined(HAVE_CONFIG_H)
 #include "config/tripcoin-config.h"
@@ -44,4 +44,4 @@ inline uint64_t bswap_64(uint64_t x)
 }
 #endif // HAVE_DECL_BSWAP64
 
-#endif // BITCOIN_COMPAT_BYTESWAP_H
+#endif // TRIPCOIN_COMPAT_BYTESWAP_H

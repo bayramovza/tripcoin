@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_RPCSERVER_H
-#define BITCOIN_RPCSERVER_H
+#ifndef TRIPCOIN_RPCSERVER_H
+#define TRIPCOIN_RPCSERVER_H
 
 #include "amount.h"
 #include "rpcprotocol.h"
@@ -243,4 +243,4 @@ extern bool HTTPReq_REST(AcceptedConnection *conn,
                   const std::map<std::string, std::string>& mapHeaders,
                   bool fRun);
 
-#endif // BITCOIN_RPCSERVER_H
+#endif // TRIPCOIN_RPCSERVER_H

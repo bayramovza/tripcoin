@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_TXMEMPOOL_H
-#define BITCOIN_TXMEMPOOL_H
+#ifndef TRIPCOIN_TXMEMPOOL_H
+#define TRIPCOIN_TXMEMPOOL_H
 
 #include <list>
 
@@ -179,4 +179,4 @@ public:
     bool HaveCoins(const uint256 &txid) const;
 };
 
-#endif // BITCOIN_TXMEMPOOL_H
+#endif // TRIPCOIN_TXMEMPOOL_H

@@ -5,7 +5,7 @@
 #
 
 from test_framework.mininode import *
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import TripcoinTestFramework
 from test_framework.util import *
 import logging
 
@@ -76,10 +76,10 @@ class TestManager(NodeConnCB):
         self.connection.disconnect_node()
 
         
-class MaxBlocksInFlightTest(BitcoinTestFramework):
+class MaxBlocksInFlightTest(TripcoinTestFramework):
     def add_options(self, parser):
         parser.add_option("--testbinary", dest="testbinary",
-                          default=os.getenv("BITCOIND", "tripcoind"),
+                          default=os.getenv("TRIPCOIND", "tripcoind"),
                           help="Binary to test max block requests behavior")
 
     def setup_chain(self):

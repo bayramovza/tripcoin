@@ -45,14 +45,14 @@ host_triplet = @host@
 bin_PROGRAMS = $(am__EXEEXT_1) $(am__EXEEXT_2) $(am__EXEEXT_3) \
 	$(am__EXEEXT_4) $(am__EXEEXT_5)
 TESTS = $(am__EXEEXT_3) $(am__EXEEXT_5)
-@BUILD_BITCOIND_TRUE@am__append_6 = tripcoind
-@BUILD_BITCOIN_UTILS_TRUE@am__append_7 = tripcoin-cli tripcoin-tx
+@BUILD_TRIPCOIND_TRUE@am__append_6 = tripcoind
+@BUILD_TRIPCOIN_UTILS_TRUE@am__append_7 = tripcoin-cli tripcoin-tx
 @GLIBC_BACK_COMPAT_TRUE@am__append_8 = compat/glibc_compat.cpp
 @TARGET_WINDOWS_TRUE@am__append_9 = tripcoind-res.rc
 @ENABLE_WALLET_TRUE@am__append_10 = libtripcoin_wallet.a
 @TARGET_WINDOWS_TRUE@am__append_11 = tripcoin-cli-res.rc
 @TARGET_WINDOWS_TRUE@am__append_12 = tripcoin-tx-res.rc
-@BUILD_BITCOIN_LIBS_TRUE@@GLIBC_BACK_COMPAT_TRUE@am__append_13 = compat/glibc_compat.cpp
+@BUILD_TRIPCOIN_LIBS_TRUE@@GLIBC_BACK_COMPAT_TRUE@am__append_13 = compat/glibc_compat.cpp
 DIST_COMMON = $(am__include_HEADERS_DIST) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/Makefile.qt.include \
 	$(srcdir)/Makefile.qttest.include \
@@ -77,8 +77,8 @@ DIST_COMMON = $(am__include_HEADERS_DIST) $(srcdir)/Makefile.am \
 @ENABLE_TESTS_TRUE@@ENABLE_WALLET_TRUE@  wallet/test/wallet_tests.cpp \
 @ENABLE_TESTS_TRUE@@ENABLE_WALLET_TRUE@  test/rpc_wallet_tests.cpp
 
-@ENABLE_TESTS_TRUE@@ENABLE_WALLET_TRUE@am__append_18 = $(LIBBITCOIN_WALLET)
-@ENABLE_TESTS_TRUE@am__append_19 = $(CLEAN_BITCOIN_TEST)
+@ENABLE_TESTS_TRUE@@ENABLE_WALLET_TRUE@am__append_18 = $(LIBTRIPCOIN_WALLET)
+@ENABLE_TESTS_TRUE@am__append_19 = $(CLEAN_TRIPCOIN_TEST)
 @ENABLE_QT_TRUE@am__append_20 = qt/tripcoin-qt
 @ENABLE_QT_TRUE@am__append_21 = qt/libtripcoinqt.a
 @ENABLE_QT_TRUE@@TARGET_WINDOWS_TRUE@am__append_22 = qt/winshutdownmonitor.cpp
@@ -110,9 +110,9 @@ DIST_COMMON = $(am__include_HEADERS_DIST) $(srcdir)/Makefile.am \
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@  qt/walletmodeltransaction.cpp \
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@  qt/walletview.cpp
 
-@ENABLE_QT_TRUE@@TARGET_DARWIN_TRUE@am__append_24 = $(BITCOIN_MM)
-@ENABLE_QT_TRUE@@TARGET_WINDOWS_TRUE@am__append_25 = $(BITCOIN_RC)
-@ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@am__append_26 = $(LIBBITCOIN_WALLET)
+@ENABLE_QT_TRUE@@TARGET_DARWIN_TRUE@am__append_24 = $(TRIPCOIN_MM)
+@ENABLE_QT_TRUE@@TARGET_WINDOWS_TRUE@am__append_25 = $(TRIPCOIN_RC)
+@ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@am__append_26 = $(LIBTRIPCOIN_WALLET)
 @ENABLE_QT_TRUE@am__append_27 = $(CLEAN_QT)
 @ENABLE_QT_TESTS_TRUE@am__append_28 = qt/test/test_tripcoin-qt
 @ENABLE_QT_TESTS_TRUE@am__append_29 = qt/test/test_tripcoin-qt
@@ -120,8 +120,8 @@ DIST_COMMON = $(am__include_HEADERS_DIST) $(srcdir)/Makefile.am \
 @ENABLE_QT_TESTS_TRUE@@ENABLE_WALLET_TRUE@am__append_31 = \
 @ENABLE_QT_TESTS_TRUE@@ENABLE_WALLET_TRUE@  qt/test/paymentservertests.cpp
 
-@ENABLE_QT_TESTS_TRUE@@ENABLE_WALLET_TRUE@am__append_32 = $(LIBBITCOIN_WALLET)
-@ENABLE_QT_TESTS_TRUE@am__append_33 = $(CLEAN_BITCOIN_QT_TEST)
+@ENABLE_QT_TESTS_TRUE@@ENABLE_WALLET_TRUE@am__append_32 = $(LIBTRIPCOIN_WALLET)
+@ENABLE_QT_TESTS_TRUE@am__append_33 = $(CLEAN_TRIPCOIN_QT_TEST)
 subdir = src
 SUBDIRS =
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -556,8 +556,8 @@ am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" \
 	"$(DESTDIR)$(includedir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 am__DEPENDENCIES_1 =
-@BUILD_BITCOIN_LIBS_TRUE@libtripcoinconsensus_la_DEPENDENCIES =  \
-@BUILD_BITCOIN_LIBS_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_TRIPCOIN_LIBS_TRUE@libtripcoinconsensus_la_DEPENDENCIES =  \
+@BUILD_TRIPCOIN_LIBS_TRUE@	$(am__DEPENDENCIES_1)
 am__libtripcoinconsensus_la_SOURCES_DIST = crypto/hmac_sha512.cpp \
 	crypto/ripemd160.cpp crypto/sha1.cpp crypto/sha256.cpp \
 	crypto/sha512.cpp eccryptoverify.cpp ecwrapper.cpp hash.cpp \
@@ -565,23 +565,23 @@ am__libtripcoinconsensus_la_SOURCES_DIST = crypto/hmac_sha512.cpp \
 	script/tripcoinconsensus.cpp script/interpreter.cpp \
 	script/script.cpp uint256.cpp utilstrencodings.cpp \
 	compat/glibc_compat.cpp
-@BUILD_BITCOIN_LIBS_TRUE@@GLIBC_BACK_COMPAT_TRUE@am__objects_10 = compat/libtripcoinconsensus_la-glibc_compat.lo
-@BUILD_BITCOIN_LIBS_TRUE@am_libtripcoinconsensus_la_OBJECTS = crypto/libtripcoinconsensus_la-hmac_sha512.lo \
-@BUILD_BITCOIN_LIBS_TRUE@	crypto/libtripcoinconsensus_la-ripemd160.lo \
-@BUILD_BITCOIN_LIBS_TRUE@	crypto/libtripcoinconsensus_la-sha1.lo \
-@BUILD_BITCOIN_LIBS_TRUE@	crypto/libtripcoinconsensus_la-sha256.lo \
-@BUILD_BITCOIN_LIBS_TRUE@	crypto/libtripcoinconsensus_la-sha512.lo \
-@BUILD_BITCOIN_LIBS_TRUE@	libtripcoinconsensus_la-eccryptoverify.lo \
-@BUILD_BITCOIN_LIBS_TRUE@	libtripcoinconsensus_la-ecwrapper.lo \
-@BUILD_BITCOIN_LIBS_TRUE@	libtripcoinconsensus_la-hash.lo \
-@BUILD_BITCOIN_LIBS_TRUE@	primitives/libtripcoinconsensus_la-transaction.lo \
-@BUILD_BITCOIN_LIBS_TRUE@	libtripcoinconsensus_la-pubkey.lo \
-@BUILD_BITCOIN_LIBS_TRUE@	script/libtripcoinconsensus_la-tripcoinconsensus.lo \
-@BUILD_BITCOIN_LIBS_TRUE@	script/libtripcoinconsensus_la-interpreter.lo \
-@BUILD_BITCOIN_LIBS_TRUE@	script/libtripcoinconsensus_la-script.lo \
-@BUILD_BITCOIN_LIBS_TRUE@	libtripcoinconsensus_la-uint256.lo \
-@BUILD_BITCOIN_LIBS_TRUE@	libtripcoinconsensus_la-utilstrencodings.lo \
-@BUILD_BITCOIN_LIBS_TRUE@	$(am__objects_10)
+@BUILD_TRIPCOIN_LIBS_TRUE@@GLIBC_BACK_COMPAT_TRUE@am__objects_10 = compat/libtripcoinconsensus_la-glibc_compat.lo
+@BUILD_TRIPCOIN_LIBS_TRUE@am_libtripcoinconsensus_la_OBJECTS = crypto/libtripcoinconsensus_la-hmac_sha512.lo \
+@BUILD_TRIPCOIN_LIBS_TRUE@	crypto/libtripcoinconsensus_la-ripemd160.lo \
+@BUILD_TRIPCOIN_LIBS_TRUE@	crypto/libtripcoinconsensus_la-sha1.lo \
+@BUILD_TRIPCOIN_LIBS_TRUE@	crypto/libtripcoinconsensus_la-sha256.lo \
+@BUILD_TRIPCOIN_LIBS_TRUE@	crypto/libtripcoinconsensus_la-sha512.lo \
+@BUILD_TRIPCOIN_LIBS_TRUE@	libtripcoinconsensus_la-eccryptoverify.lo \
+@BUILD_TRIPCOIN_LIBS_TRUE@	libtripcoinconsensus_la-ecwrapper.lo \
+@BUILD_TRIPCOIN_LIBS_TRUE@	libtripcoinconsensus_la-hash.lo \
+@BUILD_TRIPCOIN_LIBS_TRUE@	primitives/libtripcoinconsensus_la-transaction.lo \
+@BUILD_TRIPCOIN_LIBS_TRUE@	libtripcoinconsensus_la-pubkey.lo \
+@BUILD_TRIPCOIN_LIBS_TRUE@	script/libtripcoinconsensus_la-tripcoinconsensus.lo \
+@BUILD_TRIPCOIN_LIBS_TRUE@	script/libtripcoinconsensus_la-interpreter.lo \
+@BUILD_TRIPCOIN_LIBS_TRUE@	script/libtripcoinconsensus_la-script.lo \
+@BUILD_TRIPCOIN_LIBS_TRUE@	libtripcoinconsensus_la-uint256.lo \
+@BUILD_TRIPCOIN_LIBS_TRUE@	libtripcoinconsensus_la-utilstrencodings.lo \
+@BUILD_TRIPCOIN_LIBS_TRUE@	$(am__objects_10)
 libtripcoinconsensus_la_OBJECTS = $(am_libtripcoinconsensus_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -590,11 +590,11 @@ libtripcoinconsensus_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CXXLD) \
 	$(AM_CXXFLAGS) $(CXXFLAGS) $(libtripcoinconsensus_la_LDFLAGS) \
 	$(LDFLAGS) -o $@
-@BUILD_BITCOIN_LIBS_TRUE@am_libtripcoinconsensus_la_rpath = -rpath \
-@BUILD_BITCOIN_LIBS_TRUE@	$(libdir)
-@BUILD_BITCOIND_TRUE@am__EXEEXT_1 = tripcoind$(EXEEXT)
-@BUILD_BITCOIN_UTILS_TRUE@am__EXEEXT_2 = tripcoin-cli$(EXEEXT) \
-@BUILD_BITCOIN_UTILS_TRUE@	tripcoin-tx$(EXEEXT)
+@BUILD_TRIPCOIN_LIBS_TRUE@am_libtripcoinconsensus_la_rpath = -rpath \
+@BUILD_TRIPCOIN_LIBS_TRUE@	$(libdir)
+@BUILD_TRIPCOIND_TRUE@am__EXEEXT_1 = tripcoind$(EXEEXT)
+@BUILD_TRIPCOIN_UTILS_TRUE@am__EXEEXT_2 = tripcoin-cli$(EXEEXT) \
+@BUILD_TRIPCOIN_UTILS_TRUE@	tripcoin-tx$(EXEEXT)
 @ENABLE_TESTS_TRUE@am__EXEEXT_3 = test/test_tripcoin$(EXEEXT)
 @ENABLE_QT_TRUE@am__EXEEXT_4 = qt/tripcoin-qt$(EXEEXT)
 @ENABLE_QT_TESTS_TRUE@am__EXEEXT_5 = qt/test/test_tripcoin-qt$(EXEEXT)
@@ -604,7 +604,7 @@ am__tripcoin_cli_SOURCES_DIST = tripcoin-cli.cpp tripcoin-cli-res.rc
 am_tripcoin_cli_OBJECTS = tripcoin_cli-tripcoin-cli.$(OBJEXT) \
 	$(am__objects_11)
 tripcoin_cli_OBJECTS = $(am_tripcoin_cli_OBJECTS)
-tripcoin_cli_DEPENDENCIES = $(LIBBITCOIN_CLI) $(LIBBITCOIN_UTIL) \
+tripcoin_cli_DEPENDENCIES = $(LIBTRIPCOIN_CLI) $(LIBTRIPCOIN_UTIL) \
 	$(LIBSECP256K1) $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1)
 tripcoin_cli_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
@@ -615,8 +615,8 @@ am__tripcoin_tx_SOURCES_DIST = tripcoin-tx.cpp tripcoin-tx-res.rc
 am_tripcoin_tx_OBJECTS = tripcoin_tx-tripcoin-tx.$(OBJEXT) \
 	$(am__objects_12)
 tripcoin_tx_OBJECTS = $(am_tripcoin_tx_OBJECTS)
-tripcoin_tx_DEPENDENCIES = $(LIBBITCOIN_UNIVALUE) $(LIBBITCOIN_COMMON) \
-	$(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBSECP256K1) \
+tripcoin_tx_DEPENDENCIES = $(LIBTRIPCOIN_UNIVALUE) $(LIBTRIPCOIN_COMMON) \
+	$(LIBTRIPCOIN_UTIL) $(LIBTRIPCOIN_CRYPTO) $(LIBSECP256K1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
 tripcoin_tx_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
@@ -627,8 +627,8 @@ am_tripcoind_OBJECTS = tripcoind-tripcoind.$(OBJEXT) $(am__objects_13)
 tripcoind_OBJECTS = $(am_tripcoind_OBJECTS)
 am__DEPENDENCIES_2 = $(am__append_2)
 am__DEPENDENCIES_3 = $(am__append_3)
-tripcoind_DEPENDENCIES = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_COMMON) \
-	$(LIBBITCOIN_UNIVALUE) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) \
+tripcoind_DEPENDENCIES = $(LIBTRIPCOIN_SERVER) $(LIBTRIPCOIN_COMMON) \
+	$(LIBTRIPCOIN_UNIVALUE) $(LIBTRIPCOIN_UTIL) $(LIBTRIPCOIN_CRYPTO) \
 	$(am__DEPENDENCIES_2) $(am__DEPENDENCIES_3) $(LIBSECP256K1) \
 	$(am__append_10) $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
@@ -651,10 +651,10 @@ am__qt_tripcoin_qt_SOURCES_DIST = qt/tripcoin.cpp \
 @ENABLE_QT_TRUE@	$(am__objects_15) $(am__objects_17)
 qt_tripcoin_qt_OBJECTS = $(am_qt_tripcoin_qt_OBJECTS)
 @ENABLE_QT_TRUE@qt_tripcoin_qt_DEPENDENCIES = qt/libtripcoinqt.a \
-@ENABLE_QT_TRUE@	$(LIBBITCOIN_SERVER) $(am__append_26) \
-@ENABLE_QT_TRUE@	$(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) \
-@ENABLE_QT_TRUE@	$(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) \
-@ENABLE_QT_TRUE@	$(LIBBITCOIN_UNIVALUE) $(am__DEPENDENCIES_2) \
+@ENABLE_QT_TRUE@	$(LIBTRIPCOIN_SERVER) $(am__append_26) \
+@ENABLE_QT_TRUE@	$(LIBTRIPCOIN_CLI) $(LIBTRIPCOIN_COMMON) \
+@ENABLE_QT_TRUE@	$(LIBTRIPCOIN_UTIL) $(LIBTRIPCOIN_CRYPTO) \
+@ENABLE_QT_TRUE@	$(LIBTRIPCOIN_UNIVALUE) $(am__DEPENDENCIES_2) \
 @ENABLE_QT_TRUE@	$(am__DEPENDENCIES_3) $(am__DEPENDENCIES_1) \
 @ENABLE_QT_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 @ENABLE_QT_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
@@ -682,11 +682,11 @@ qt_test_test_tripcoin_qt_OBJECTS =  \
 	$(am_qt_test_test_tripcoin_qt_OBJECTS) \
 	$(nodist_qt_test_test_tripcoin_qt_OBJECTS)
 @ENABLE_QT_TESTS_TRUE@qt_test_test_tripcoin_qt_DEPENDENCIES =  \
-@ENABLE_QT_TESTS_TRUE@	$(LIBBITCOINQT) $(LIBBITCOIN_SERVER) \
-@ENABLE_QT_TESTS_TRUE@	$(am__append_32) $(LIBBITCOIN_CLI) \
-@ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) \
-@ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_CRYPTO) \
-@ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_UNIVALUE) \
+@ENABLE_QT_TESTS_TRUE@	$(LIBTRIPCOINQT) $(LIBTRIPCOIN_SERVER) \
+@ENABLE_QT_TESTS_TRUE@	$(am__append_32) $(LIBTRIPCOIN_CLI) \
+@ENABLE_QT_TESTS_TRUE@	$(LIBTRIPCOIN_COMMON) $(LIBTRIPCOIN_UTIL) \
+@ENABLE_QT_TESTS_TRUE@	$(LIBTRIPCOIN_CRYPTO) \
+@ENABLE_QT_TESTS_TRUE@	$(LIBTRIPCOIN_UNIVALUE) \
 @ENABLE_QT_TESTS_TRUE@	$(am__DEPENDENCIES_2) \
 @ENABLE_QT_TESTS_TRUE@	$(am__DEPENDENCIES_3) \
 @ENABLE_QT_TESTS_TRUE@	$(am__DEPENDENCIES_1) \
@@ -784,11 +784,11 @@ am__test_test_tripcoin_SOURCES_DIST = test/arith_uint256_tests.cpp \
 @ENABLE_TESTS_TRUE@	$(am__objects_23)
 test_test_tripcoin_OBJECTS = $(am_test_test_tripcoin_OBJECTS) \
 	$(nodist_test_test_tripcoin_OBJECTS)
-@BUILD_BITCOIN_LIBS_TRUE@am__DEPENDENCIES_4 = libtripcoinconsensus.la
+@BUILD_TRIPCOIN_LIBS_TRUE@am__DEPENDENCIES_4 = libtripcoinconsensus.la
 @ENABLE_TESTS_TRUE@test_test_tripcoin_DEPENDENCIES =  \
-@ENABLE_TESTS_TRUE@	$(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) \
-@ENABLE_TESTS_TRUE@	$(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) \
-@ENABLE_TESTS_TRUE@	$(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UNIVALUE) \
+@ENABLE_TESTS_TRUE@	$(LIBTRIPCOIN_SERVER) $(LIBTRIPCOIN_CLI) \
+@ENABLE_TESTS_TRUE@	$(LIBTRIPCOIN_COMMON) $(LIBTRIPCOIN_UTIL) \
+@ENABLE_TESTS_TRUE@	$(LIBTRIPCOIN_CRYPTO) $(LIBTRIPCOIN_UNIVALUE) \
 @ENABLE_TESTS_TRUE@	$(am__DEPENDENCIES_2) $(am__DEPENDENCIES_3) \
 @ENABLE_TESTS_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 @ENABLE_TESTS_TRUE@	$(LIBSECP256K1) $(am__append_18) \
@@ -1121,18 +1121,18 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 DIST_SUBDIRS = secp256k1
 AM_LDFLAGS = $(PTHREAD_CFLAGS) $(LIBTOOL_LDFLAGS)
-BITCOIN_CONFIG_INCLUDES = -I$(builddir)/config
-BITCOIN_INCLUDES = -I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) \
+TRIPCOIN_CONFIG_INCLUDES = -I$(builddir)/config
+TRIPCOIN_INCLUDES = -I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) \
 	$(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS) \
 	-I$(srcdir)/secp256k1/include $(am__append_4)
-LIBBITCOIN_SERVER = libtripcoin_server.a
-LIBBITCOIN_WALLET = libtripcoin_wallet.a
-LIBBITCOIN_COMMON = libtripcoin_common.a
-LIBBITCOIN_CLI = libtripcoin_cli.a
-LIBBITCOIN_UTIL = libtripcoin_util.a
-LIBBITCOIN_CRYPTO = crypto/libtripcoin_crypto.a
-LIBBITCOIN_UNIVALUE = univalue/libtripcoin_univalue.a
-LIBBITCOINQT = qt/libtripcoinqt.a
+LIBTRIPCOIN_SERVER = libtripcoin_server.a
+LIBTRIPCOIN_WALLET = libtripcoin_wallet.a
+LIBTRIPCOIN_COMMON = libtripcoin_common.a
+LIBTRIPCOIN_CLI = libtripcoin_cli.a
+LIBTRIPCOIN_UTIL = libtripcoin_util.a
+LIBTRIPCOIN_CRYPTO = crypto/libtripcoin_crypto.a
+LIBTRIPCOIN_UNIVALUE = univalue/libtripcoin_univalue.a
+LIBTRIPCOINQT = qt/libtripcoinqt.a
 LIBSECP256K1 = secp256k1/libsecp256k1.la
 
 # Make is not made aware of per-object dependencies to avoid limiting building parallelization
@@ -1141,11 +1141,11 @@ EXTRA_LIBRARIES = crypto/libtripcoin_crypto.a libtripcoin_util.a \
 	libtripcoin_common.a univalue/libtripcoin_univalue.a \
 	libtripcoin_server.a libtripcoin_cli.a $(am__append_5) \
 	$(am__append_21)
-@BUILD_BITCOIN_LIBS_TRUE@lib_LTLIBRARIES = libtripcoinconsensus.la
-@BUILD_BITCOIN_LIBS_FALSE@LIBBITCOIN_CONSENSUS = 
-@BUILD_BITCOIN_LIBS_TRUE@LIBBITCOIN_CONSENSUS = libtripcoinconsensus.la
+@BUILD_TRIPCOIN_LIBS_TRUE@lib_LTLIBRARIES = libtripcoinconsensus.la
+@BUILD_TRIPCOIN_LIBS_FALSE@LIBTRIPCOIN_CONSENSUS = 
+@BUILD_TRIPCOIN_LIBS_TRUE@LIBTRIPCOIN_CONSENSUS = libtripcoinconsensus.la
 # tripcoin core #
-BITCOIN_CORE_H = \
+TRIPCOIN_CORE_H = \
   addrman.h \
   alert.h \
   amount.h \
@@ -1243,7 +1243,7 @@ JSON_H = \
 
 
 # server: shared between tripcoind and tripcoin-qt
-libtripcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
+libtripcoin_server_a_CPPFLAGS = $(TRIPCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
 libtripcoin_server_a_SOURCES = \
   addrman.cpp \
   alert.cpp \
@@ -1272,12 +1272,12 @@ libtripcoin_server_a_SOURCES = \
   txmempool.cpp \
   validationinterface.cpp \
   $(JSON_H) \
-  $(BITCOIN_CORE_H)
+  $(TRIPCOIN_CORE_H)
 
 
 # wallet: shared between tripcoind and tripcoin-qt, but only linked
 # when wallet enabled
-libtripcoin_wallet_a_CPPFLAGS = $(BITCOIN_INCLUDES)
+libtripcoin_wallet_a_CPPFLAGS = $(TRIPCOIN_INCLUDES)
 libtripcoin_wallet_a_SOURCES = \
   wallet/crypter.cpp \
   wallet/db.cpp \
@@ -1286,11 +1286,11 @@ libtripcoin_wallet_a_SOURCES = \
   wallet/wallet.cpp \
   wallet/wallet_ismine.cpp \
   wallet/walletdb.cpp \
-  $(BITCOIN_CORE_H)
+  $(TRIPCOIN_CORE_H)
 
 
 # crypto primitives library
-crypto_libtripcoin_crypto_a_CPPFLAGS = $(BITCOIN_CONFIG_INCLUDES)
+crypto_libtripcoin_crypto_a_CPPFLAGS = $(TRIPCOIN_CONFIG_INCLUDES)
 crypto_libtripcoin_crypto_a_SOURCES = \
   crypto/common.h \
   crypto/hmac_sha256.cpp \
@@ -1317,7 +1317,7 @@ univalue_libtripcoin_univalue_a_SOURCES = \
 
 
 # common: shared between tripcoind, and tripcoin-qt and non-server tools
-libtripcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
+libtripcoin_common_a_CPPFLAGS = $(TRIPCOIN_INCLUDES)
 libtripcoin_common_a_SOURCES = \
   amount.cpp \
   arith_uint256.cpp \
@@ -1343,35 +1343,35 @@ libtripcoin_common_a_SOURCES = \
   script/script_error.cpp \
   script/sign.cpp \
   script/standard.cpp \
-  $(BITCOIN_CORE_H)
+  $(TRIPCOIN_CORE_H)
 
 
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libtripcoin_util_a_CPPFLAGS = $(BITCOIN_INCLUDES)
+libtripcoin_util_a_CPPFLAGS = $(TRIPCOIN_INCLUDES)
 libtripcoin_util_a_SOURCES = support/pagelocker.cpp chainparamsbase.cpp \
 	clientversion.cpp compat/glibc_sanity.cpp \
 	compat/glibcxx_sanity.cpp compat/strnlen.cpp random.cpp \
 	rpcprotocol.cpp support/cleanse.cpp sync.cpp uint256.cpp \
 	util.cpp utilmoneystr.cpp utilstrencodings.cpp utiltime.cpp \
-	$(BITCOIN_CORE_H) $(am__append_8)
+	$(TRIPCOIN_CORE_H) $(am__append_8)
 
 # cli: shared between tripcoin-cli and tripcoin-qt
-libtripcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
+libtripcoin_cli_a_CPPFLAGS = $(TRIPCOIN_INCLUDES)
 libtripcoin_cli_a_SOURCES = \
   rpcclient.cpp \
-  $(BITCOIN_CORE_H)
+  $(TRIPCOIN_CORE_H)
 
 nodist_libtripcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # tripcoind binary #
 tripcoind_SOURCES = tripcoind.cpp $(am__append_9)
-tripcoind_CPPFLAGS = $(BITCOIN_INCLUDES)
+tripcoind_CPPFLAGS = $(TRIPCOIN_INCLUDES)
 tripcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-tripcoind_LDADD = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_COMMON) \
-	$(LIBBITCOIN_UNIVALUE) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) \
+tripcoind_LDADD = $(LIBTRIPCOIN_SERVER) $(LIBTRIPCOIN_COMMON) \
+	$(LIBTRIPCOIN_UNIVALUE) $(LIBTRIPCOIN_UTIL) $(LIBTRIPCOIN_CRYPTO) \
 	$(LIBLEVELDB) $(LIBMEMENV) $(LIBSECP256K1) $(am__append_10) \
 	$(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) \
 	$(MINIUPNPC_LIBS)
@@ -1379,37 +1379,37 @@ tripcoind_LDADD = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_COMMON) \
 
 # tripcoin-cli binary #
 tripcoin_cli_SOURCES = tripcoin-cli.cpp $(am__append_11)
-tripcoin_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+tripcoin_cli_CPPFLAGS = $(TRIPCOIN_INCLUDES)
 tripcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-tripcoin_cli_LDADD = $(LIBBITCOIN_CLI) $(LIBBITCOIN_UTIL) \
+tripcoin_cli_LDADD = $(LIBTRIPCOIN_CLI) $(LIBTRIPCOIN_UTIL) \
 	$(LIBSECP256K1) $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS)
 #
 
 # tripcoin-tx binary #
 tripcoin_tx_SOURCES = tripcoin-tx.cpp $(am__append_12)
-tripcoin_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+tripcoin_tx_CPPFLAGS = $(TRIPCOIN_INCLUDES)
 tripcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-tripcoin_tx_LDADD = $(LIBBITCOIN_UNIVALUE) $(LIBBITCOIN_COMMON) \
-	$(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBSECP256K1) \
+tripcoin_tx_LDADD = $(LIBTRIPCOIN_UNIVALUE) $(LIBTRIPCOIN_COMMON) \
+	$(LIBTRIPCOIN_UTIL) $(LIBTRIPCOIN_CRYPTO) $(LIBSECP256K1) \
 	$(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # tripcoinconsensus library #
-@BUILD_BITCOIN_LIBS_TRUE@include_HEADERS = script/tripcoinconsensus.h
-@BUILD_BITCOIN_LIBS_TRUE@libtripcoinconsensus_la_SOURCES =  \
-@BUILD_BITCOIN_LIBS_TRUE@	crypto/hmac_sha512.cpp \
-@BUILD_BITCOIN_LIBS_TRUE@	crypto/ripemd160.cpp crypto/sha1.cpp \
-@BUILD_BITCOIN_LIBS_TRUE@	crypto/sha256.cpp crypto/sha512.cpp \
-@BUILD_BITCOIN_LIBS_TRUE@	eccryptoverify.cpp ecwrapper.cpp \
-@BUILD_BITCOIN_LIBS_TRUE@	hash.cpp primitives/transaction.cpp \
-@BUILD_BITCOIN_LIBS_TRUE@	pubkey.cpp \
-@BUILD_BITCOIN_LIBS_TRUE@	script/tripcoinconsensus.cpp \
-@BUILD_BITCOIN_LIBS_TRUE@	script/interpreter.cpp \
-@BUILD_BITCOIN_LIBS_TRUE@	script/script.cpp uint256.cpp \
-@BUILD_BITCOIN_LIBS_TRUE@	utilstrencodings.cpp $(am__append_13)
-@BUILD_BITCOIN_LIBS_TRUE@libtripcoinconsensus_la_LDFLAGS = -no-undefined $(RELDFLAGS)
-@BUILD_BITCOIN_LIBS_TRUE@libtripcoinconsensus_la_LIBADD = $(CRYPTO_LIBS)
-@BUILD_BITCOIN_LIBS_TRUE@libtripcoinconsensus_la_CPPFLAGS = $(CRYPTO_CFLAGS) -I$(builddir)/obj -DBUILD_BITCOIN_INTERNAL
+@BUILD_TRIPCOIN_LIBS_TRUE@include_HEADERS = script/tripcoinconsensus.h
+@BUILD_TRIPCOIN_LIBS_TRUE@libtripcoinconsensus_la_SOURCES =  \
+@BUILD_TRIPCOIN_LIBS_TRUE@	crypto/hmac_sha512.cpp \
+@BUILD_TRIPCOIN_LIBS_TRUE@	crypto/ripemd160.cpp crypto/sha1.cpp \
+@BUILD_TRIPCOIN_LIBS_TRUE@	crypto/sha256.cpp crypto/sha512.cpp \
+@BUILD_TRIPCOIN_LIBS_TRUE@	eccryptoverify.cpp ecwrapper.cpp \
+@BUILD_TRIPCOIN_LIBS_TRUE@	hash.cpp primitives/transaction.cpp \
+@BUILD_TRIPCOIN_LIBS_TRUE@	pubkey.cpp \
+@BUILD_TRIPCOIN_LIBS_TRUE@	script/tripcoinconsensus.cpp \
+@BUILD_TRIPCOIN_LIBS_TRUE@	script/interpreter.cpp \
+@BUILD_TRIPCOIN_LIBS_TRUE@	script/script.cpp uint256.cpp \
+@BUILD_TRIPCOIN_LIBS_TRUE@	utilstrencodings.cpp $(am__append_13)
+@BUILD_TRIPCOIN_LIBS_TRUE@libtripcoinconsensus_la_LDFLAGS = -no-undefined $(RELDFLAGS)
+@BUILD_TRIPCOIN_LIBS_TRUE@libtripcoinconsensus_la_LIBADD = $(CRYPTO_LIBS)
+@BUILD_TRIPCOIN_LIBS_TRUE@libtripcoinconsensus_la_CPPFLAGS = $(CRYPTO_CFLAGS) -I$(builddir)/obj -DBUILD_TRIPCOIN_INTERNAL
 
 #
 CLEANFILES = leveldb/libleveldb.a leveldb/libmemenv.a *.gcda *.gcno \
@@ -1430,7 +1430,7 @@ EXTRA_DIST = leveldb $(am__append_16)
 
 @ENABLE_TESTS_TRUE@RAW_TEST_FILES = test/data/alertTests.raw
 @ENABLE_TESTS_TRUE@GENERATED_TEST_FILES = $(JSON_TEST_FILES:.json=.json.h) $(RAW_TEST_FILES:.raw=.raw.h)
-@ENABLE_TESTS_TRUE@BITCOIN_TESTS = test/arith_uint256_tests.cpp \
+@ENABLE_TESTS_TRUE@TRIPCOIN_TESTS = test/arith_uint256_tests.cpp \
 @ENABLE_TESTS_TRUE@	test/bignum.h test/alert_tests.cpp \
 @ENABLE_TESTS_TRUE@	test/allocator_tests.cpp \
 @ENABLE_TESTS_TRUE@	test/base32_tests.cpp test/base58_tests.cpp \
@@ -1464,21 +1464,21 @@ EXTRA_DIST = leveldb $(am__append_16)
 @ENABLE_TESTS_TRUE@	test/uint256_tests.cpp \
 @ENABLE_TESTS_TRUE@	test/univalue_tests.cpp test/util_tests.cpp \
 @ENABLE_TESTS_TRUE@	$(am__append_17)
-@ENABLE_TESTS_TRUE@test_test_tripcoin_SOURCES = $(BITCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
-@ENABLE_TESTS_TRUE@test_test_tripcoin_CPPFLAGS = $(BITCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS)
-@ENABLE_TESTS_TRUE@test_test_tripcoin_LDADD = $(LIBBITCOIN_SERVER) \
-@ENABLE_TESTS_TRUE@	$(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) \
-@ENABLE_TESTS_TRUE@	$(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) \
-@ENABLE_TESTS_TRUE@	$(LIBBITCOIN_UNIVALUE) $(LIBLEVELDB) \
+@ENABLE_TESTS_TRUE@test_test_tripcoin_SOURCES = $(TRIPCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
+@ENABLE_TESTS_TRUE@test_test_tripcoin_CPPFLAGS = $(TRIPCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS)
+@ENABLE_TESTS_TRUE@test_test_tripcoin_LDADD = $(LIBTRIPCOIN_SERVER) \
+@ENABLE_TESTS_TRUE@	$(LIBTRIPCOIN_CLI) $(LIBTRIPCOIN_COMMON) \
+@ENABLE_TESTS_TRUE@	$(LIBTRIPCOIN_UTIL) $(LIBTRIPCOIN_CRYPTO) \
+@ENABLE_TESTS_TRUE@	$(LIBTRIPCOIN_UNIVALUE) $(LIBLEVELDB) \
 @ENABLE_TESTS_TRUE@	$(LIBMEMENV) $(BOOST_LIBS) \
 @ENABLE_TESTS_TRUE@	$(BOOST_UNIT_TEST_FRAMEWORK_LIB) \
 @ENABLE_TESTS_TRUE@	$(LIBSECP256K1) $(am__append_18) \
-@ENABLE_TESTS_TRUE@	$(LIBBITCOIN_CONSENSUS) $(BDB_LIBS) \
+@ENABLE_TESTS_TRUE@	$(LIBTRIPCOIN_CONSENSUS) $(BDB_LIBS) \
 @ENABLE_TESTS_TRUE@	$(SSL_LIBS) $(CRYPTO_LIBS) \
 @ENABLE_TESTS_TRUE@	$(MINIUPNPC_LIBS)
 @ENABLE_TESTS_TRUE@test_test_tripcoin_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
 @ENABLE_TESTS_TRUE@nodist_test_test_tripcoin_SOURCES = $(GENERATED_TEST_FILES)
-@ENABLE_TESTS_TRUE@CLEAN_BITCOIN_TEST = test/*.gcda test/*.gcno $(GENERATED_TEST_FILES)
+@ENABLE_TESTS_TRUE@CLEAN_TRIPCOIN_TEST = test/*.gcda test/*.gcno $(GENERATED_TEST_FILES)
 
 # tripcoin qt core #
 @ENABLE_QT_TRUE@QT_TS = \
@@ -1617,7 +1617,7 @@ EXTRA_DIST = leveldb $(am__append_16)
 @ENABLE_QT_TRUE@  qt/moc_walletmodel.cpp \
 @ENABLE_QT_TRUE@  qt/moc_walletview.cpp
 
-@ENABLE_QT_TRUE@BITCOIN_MM = \
+@ENABLE_QT_TRUE@TRIPCOIN_MM = \
 @ENABLE_QT_TRUE@  qt/macdockiconhandler.mm \
 @ENABLE_QT_TRUE@  qt/macnotificationhandler.mm
 
@@ -1635,7 +1635,7 @@ EXTRA_DIST = leveldb $(am__append_16)
 @ENABLE_QT_TRUE@PROTOBUF_CC = qt/paymentrequest.pb.cc
 @ENABLE_QT_TRUE@PROTOBUF_H = qt/paymentrequest.pb.h
 @ENABLE_QT_TRUE@PROTOBUF_PROTO = qt/paymentrequest.proto
-@ENABLE_QT_TRUE@BITCOIN_QT_H = \
+@ENABLE_QT_TRUE@TRIPCOIN_QT_H = \
 @ENABLE_QT_TRUE@  qt/addressbookpage.h \
 @ENABLE_QT_TRUE@  qt/addresstablemodel.h \
 @ENABLE_QT_TRUE@  qt/askpassphrasedialog.h \
@@ -1736,7 +1736,7 @@ EXTRA_DIST = leveldb $(am__append_16)
 @ENABLE_QT_TRUE@  qt/res/icons/warning.png \
 @ENABLE_QT_TRUE@  qt/res/icons/verify.png
 
-@ENABLE_QT_TRUE@BITCOIN_QT_CPP = qt/tripcoinaddressvalidator.cpp \
+@ENABLE_QT_TRUE@TRIPCOIN_QT_CPP = qt/tripcoinaddressvalidator.cpp \
 @ENABLE_QT_TRUE@	qt/tripcoinamountfield.cpp qt/tripcoingui.cpp \
 @ENABLE_QT_TRUE@	qt/tripcoinunits.cpp qt/clientmodel.cpp \
 @ENABLE_QT_TRUE@	qt/csvmodelwriter.cpp qt/guiutil.cpp \
@@ -1750,14 +1750,14 @@ EXTRA_DIST = leveldb $(am__append_16)
 @ENABLE_QT_TRUE@	$(am__append_22) $(am__append_23)
 @ENABLE_QT_TRUE@RES_IMAGES = 
 @ENABLE_QT_TRUE@RES_MOVIES = $(wildcard qt/res/movies/spinner-*.png)
-@ENABLE_QT_TRUE@BITCOIN_RC = qt/res/tripcoin-qt-res.rc
-@ENABLE_QT_TRUE@BITCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
+@ENABLE_QT_TRUE@TRIPCOIN_RC = qt/res/tripcoin-qt-res.rc
+@ENABLE_QT_TRUE@TRIPCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
 @ENABLE_QT_TRUE@  -I$(builddir)/qt/forms
 
-@ENABLE_QT_TRUE@qt_libtripcoinqt_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+@ENABLE_QT_TRUE@qt_libtripcoinqt_a_CPPFLAGS = $(TRIPCOIN_INCLUDES) $(TRIPCOIN_QT_INCLUDES) \
 @ENABLE_QT_TRUE@  $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 
-@ENABLE_QT_TRUE@qt_libtripcoinqt_a_SOURCES = $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(QT_FORMS_UI) \
+@ENABLE_QT_TRUE@qt_libtripcoinqt_a_SOURCES = $(TRIPCOIN_QT_CPP) $(TRIPCOIN_QT_H) $(QT_FORMS_UI) \
 @ENABLE_QT_TRUE@  $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES)
 
 @ENABLE_QT_TRUE@nodist_qt_libtripcoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
@@ -1768,16 +1768,16 @@ EXTRA_DIST = leveldb $(am__append_16)
 @ENABLE_QT_TRUE@QT_FORMS_H = $(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:.ui=.h))))
 
 # tripcoin-qt binary #
-@ENABLE_QT_TRUE@qt_tripcoin_qt_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+@ENABLE_QT_TRUE@qt_tripcoin_qt_CPPFLAGS = $(TRIPCOIN_INCLUDES) $(TRIPCOIN_QT_INCLUDES) \
 @ENABLE_QT_TRUE@  $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 
 @ENABLE_QT_TRUE@qt_tripcoin_qt_SOURCES = qt/tripcoin.cpp \
 @ENABLE_QT_TRUE@	$(am__append_24) $(am__append_25)
 @ENABLE_QT_TRUE@qt_tripcoin_qt_LDADD = qt/libtripcoinqt.a \
-@ENABLE_QT_TRUE@	$(LIBBITCOIN_SERVER) $(am__append_26) \
-@ENABLE_QT_TRUE@	$(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) \
-@ENABLE_QT_TRUE@	$(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) \
-@ENABLE_QT_TRUE@	$(LIBBITCOIN_UNIVALUE) $(LIBLEVELDB) \
+@ENABLE_QT_TRUE@	$(LIBTRIPCOIN_SERVER) $(am__append_26) \
+@ENABLE_QT_TRUE@	$(LIBTRIPCOIN_CLI) $(LIBTRIPCOIN_COMMON) \
+@ENABLE_QT_TRUE@	$(LIBTRIPCOIN_UTIL) $(LIBTRIPCOIN_CRYPTO) \
+@ENABLE_QT_TRUE@	$(LIBTRIPCOIN_UNIVALUE) $(LIBLEVELDB) \
 @ENABLE_QT_TRUE@	$(LIBMEMENV) $(BOOST_LIBS) $(QT_LIBS) \
 @ENABLE_QT_TRUE@	$(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) \
 @ENABLE_QT_TRUE@	$(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) \
@@ -1795,7 +1795,7 @@ EXTRA_DIST = leveldb $(am__append_16)
 @ENABLE_QT_TESTS_TRUE@  qt/test/paymentrequestdata.h \
 @ENABLE_QT_TESTS_TRUE@  qt/test/paymentservertests.h
 
-@ENABLE_QT_TESTS_TRUE@qt_test_test_tripcoin_qt_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+@ENABLE_QT_TESTS_TRUE@qt_test_test_tripcoin_qt_CPPFLAGS = $(TRIPCOIN_INCLUDES) $(TRIPCOIN_QT_INCLUDES) \
 @ENABLE_QT_TESTS_TRUE@  $(QT_INCLUDES) $(QT_TEST_INCLUDES) $(PROTOBUF_CFLAGS)
 
 @ENABLE_QT_TESTS_TRUE@qt_test_test_tripcoin_qt_SOURCES =  \
@@ -1803,18 +1803,18 @@ EXTRA_DIST = leveldb $(am__append_16)
 @ENABLE_QT_TESTS_TRUE@	qt/test/uritests.cpp $(TEST_QT_H) \
 @ENABLE_QT_TESTS_TRUE@	$(am__append_31)
 @ENABLE_QT_TESTS_TRUE@nodist_qt_test_test_tripcoin_qt_SOURCES = $(TEST_QT_MOC_CPP)
-@ENABLE_QT_TESTS_TRUE@qt_test_test_tripcoin_qt_LDADD = $(LIBBITCOINQT) \
-@ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_SERVER) $(am__append_32) \
-@ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) \
-@ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) \
-@ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_UNIVALUE) $(LIBLEVELDB) \
+@ENABLE_QT_TESTS_TRUE@qt_test_test_tripcoin_qt_LDADD = $(LIBTRIPCOINQT) \
+@ENABLE_QT_TESTS_TRUE@	$(LIBTRIPCOIN_SERVER) $(am__append_32) \
+@ENABLE_QT_TESTS_TRUE@	$(LIBTRIPCOIN_CLI) $(LIBTRIPCOIN_COMMON) \
+@ENABLE_QT_TESTS_TRUE@	$(LIBTRIPCOIN_UTIL) $(LIBTRIPCOIN_CRYPTO) \
+@ENABLE_QT_TESTS_TRUE@	$(LIBTRIPCOIN_UNIVALUE) $(LIBLEVELDB) \
 @ENABLE_QT_TESTS_TRUE@	$(LIBMEMENV) $(BOOST_LIBS) \
 @ENABLE_QT_TESTS_TRUE@	$(QT_DBUS_LIBS) $(QT_TEST_LIBS) \
 @ENABLE_QT_TESTS_TRUE@	$(QT_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) \
 @ENABLE_QT_TESTS_TRUE@	$(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) \
 @ENABLE_QT_TESTS_TRUE@	$(MINIUPNPC_LIBS) $(LIBSECP256K1)
 @ENABLE_QT_TESTS_TRUE@qt_test_test_tripcoin_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-@ENABLE_QT_TESTS_TRUE@CLEAN_BITCOIN_QT_TEST = $(TEST_QT_MOC_CPP) qt/test/*.gcda qt/test/*.gcno
+@ENABLE_QT_TESTS_TRUE@CLEAN_TRIPCOIN_QT_TEST = $(TEST_QT_MOC_CPP) qt/test/*.gcda qt/test/*.gcno
 all: all-recursive
 
 .SUFFIXES:
@@ -6743,7 +6743,7 @@ clean-local:
 	@test -f $(PROTOC)
 	$(AM_V_GEN) $(PROTOC) --cpp_out=$(@D) --proto_path=$(abspath $(<D) $<)
 
-@ENABLE_TESTS_TRUE@$(BITCOIN_TESTS): $(GENERATED_TEST_FILES)
+@ENABLE_TESTS_TRUE@$(TRIPCOIN_TESTS): $(GENERATED_TEST_FILES)
 
 @ENABLE_TESTS_TRUE@tripcoin_test: $(TEST_BINARY)
 
@@ -6751,7 +6751,7 @@ clean-local:
 @ENABLE_TESTS_TRUE@	$(MAKE) check-TESTS TESTS=$^
 
 @ENABLE_TESTS_TRUE@tripcoin_test_clean : FORCE
-@ENABLE_TESTS_TRUE@	rm -f $(CLEAN_BITCOIN_TEST) $(test_test_tripcoin_OBJECTS) $(TEST_BINARY)
+@ENABLE_TESTS_TRUE@	rm -f $(CLEAN_TRIPCOIN_TEST) $(test_test_tripcoin_OBJECTS) $(TEST_BINARY)
 
 @ENABLE_TESTS_TRUE@check-local:
 @ENABLE_TESTS_TRUE@	@echo "Running test/tripcoin-util-test.py..."
@@ -6790,7 +6790,7 @@ clean-local:
 @ENABLE_QT_TRUE@	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 @ENABLE_QT_TRUE@	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) ../share/qt/extract_strings_qt.py $^
 
-@ENABLE_QT_TRUE@translate: qt/tripcoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+@ENABLE_QT_TRUE@translate: qt/tripcoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(TRIPCOIN_QT_CPP) $(TRIPCOIN_QT_H) $(TRIPCOIN_MM)
 @ENABLE_QT_TRUE@	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
 @ENABLE_QT_TRUE@	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/tripcoin_en.ts
 
@@ -6806,7 +6806,7 @@ clean-local:
 @ENABLE_QT_TRUE@	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 @ENABLE_QT_TRUE@tripcoin_qt_clean: FORCE
-@ENABLE_QT_TRUE@	rm -f $(CLEAN_QT) $(qt_libtripcoinqt_a_OBJECTS) $(qt_tripcoin_qt_OBJECTS) qt/tripcoin-qt$(EXEEXT) $(LIBBITCOINQT)
+@ENABLE_QT_TRUE@	rm -f $(CLEAN_QT) $(qt_libtripcoinqt_a_OBJECTS) $(qt_tripcoin_qt_OBJECTS) qt/tripcoin-qt$(EXEEXT) $(LIBTRIPCOINQT)
 
 @ENABLE_QT_TRUE@tripcoin_qt : qt/tripcoin-qt$(EXEEXT)
 
@@ -6834,7 +6834,7 @@ clean-local:
 @ENABLE_QT_TESTS_TRUE@	$(MAKE) check-TESTS TESTS=$^
 
 @ENABLE_QT_TESTS_TRUE@test_tripcoin_qt_clean: FORCE
-@ENABLE_QT_TESTS_TRUE@	rm -f $(CLEAN_BITCOIN_QT_TEST) $(qt_test_test_tripcoin_qt_OBJECTS)
+@ENABLE_QT_TESTS_TRUE@	rm -f $(CLEAN_TRIPCOIN_QT_TEST) $(qt_test_test_tripcoin_qt_OBJECTS)
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

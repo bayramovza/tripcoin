@@ -660,12 +660,12 @@ BUILD_DARWIN_FALSE
 BUILD_DARWIN_TRUE
 TARGET_DARWIN_FALSE
 TARGET_DARWIN_TRUE
-BUILD_BITCOIN_LIBS_FALSE
-BUILD_BITCOIN_LIBS_TRUE
-BUILD_BITCOIN_UTILS_FALSE
-BUILD_BITCOIN_UTILS_TRUE
-BUILD_BITCOIND_FALSE
-BUILD_BITCOIND_TRUE
+BUILD_TRIPCOIN_LIBS_FALSE
+BUILD_TRIPCOIN_LIBS_TRUE
+BUILD_TRIPCOIN_UTILS_FALSE
+BUILD_TRIPCOIN_UTILS_TRUE
+BUILD_TRIPCOIND_FALSE
+BUILD_TRIPCOIND_TRUE
 PROTOC
 QR_LIBS
 QR_CFLAGS
@@ -26082,11 +26082,11 @@ $as_echo "$as_me: WARNING: PROTOC not found; tripcoin-qt frontend will not be bu
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build tripcoind" >&5
 $as_echo_n "checking whether to build tripcoind... " >&6; }
  if test x$build_tripcoind = xyes; then
-  BUILD_BITCOIND_TRUE=
-  BUILD_BITCOIND_FALSE='#'
+  BUILD_TRIPCOIND_TRUE=
+  BUILD_TRIPCOIND_FALSE='#'
 else
-  BUILD_BITCOIND_TRUE='#'
-  BUILD_BITCOIND_FALSE=
+  BUILD_TRIPCOIND_TRUE='#'
+  BUILD_TRIPCOIND_FALSE=
 fi
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $build_tripcoind" >&5
@@ -26095,11 +26095,11 @@ $as_echo "$build_tripcoind" >&6; }
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build utils (tripcoin-cli tripcoin-tx)" >&5
 $as_echo_n "checking whether to build utils (tripcoin-cli tripcoin-tx)... " >&6; }
  if test x$build_tripcoin_utils = xyes; then
-  BUILD_BITCOIN_UTILS_TRUE=
-  BUILD_BITCOIN_UTILS_FALSE='#'
+  BUILD_TRIPCOIN_UTILS_TRUE=
+  BUILD_TRIPCOIN_UTILS_FALSE='#'
 else
-  BUILD_BITCOIN_UTILS_TRUE='#'
-  BUILD_BITCOIN_UTILS_FALSE=
+  BUILD_TRIPCOIN_UTILS_TRUE='#'
+  BUILD_TRIPCOIN_UTILS_FALSE=
 fi
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $build_tripcoin_utils" >&5
@@ -26108,11 +26108,11 @@ $as_echo "$build_tripcoin_utils" >&6; }
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build libraries" >&5
 $as_echo_n "checking whether to build libraries... " >&6; }
  if test x$build_tripcoin_libs = xyes; then
-  BUILD_BITCOIN_LIBS_TRUE=
-  BUILD_BITCOIN_LIBS_FALSE='#'
+  BUILD_TRIPCOIN_LIBS_TRUE=
+  BUILD_TRIPCOIN_LIBS_FALSE='#'
 else
-  BUILD_BITCOIN_LIBS_TRUE='#'
-  BUILD_BITCOIN_LIBS_FALSE=
+  BUILD_TRIPCOIN_LIBS_TRUE='#'
+  BUILD_TRIPCOIN_LIBS_FALSE=
 fi
 
 if test x$build_tripcoin_libs = xyes; then
@@ -26626,16 +26626,16 @@ if test -z "${EMBEDDED_LEVELDB_TRUE}" && test -z "${EMBEDDED_LEVELDB_FALSE}"; th
   as_fn_error $? "conditional \"EMBEDDED_LEVELDB\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
-if test -z "${BUILD_BITCOIND_TRUE}" && test -z "${BUILD_BITCOIND_FALSE}"; then
-  as_fn_error $? "conditional \"BUILD_BITCOIND\" was never defined.
+if test -z "${BUILD_TRIPCOIND_TRUE}" && test -z "${BUILD_TRIPCOIND_FALSE}"; then
+  as_fn_error $? "conditional \"BUILD_TRIPCOIND\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
-if test -z "${BUILD_BITCOIN_UTILS_TRUE}" && test -z "${BUILD_BITCOIN_UTILS_FALSE}"; then
-  as_fn_error $? "conditional \"BUILD_BITCOIN_UTILS\" was never defined.
+if test -z "${BUILD_TRIPCOIN_UTILS_TRUE}" && test -z "${BUILD_TRIPCOIN_UTILS_FALSE}"; then
+  as_fn_error $? "conditional \"BUILD_TRIPCOIN_UTILS\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
-if test -z "${BUILD_BITCOIN_LIBS_TRUE}" && test -z "${BUILD_BITCOIN_LIBS_FALSE}"; then
-  as_fn_error $? "conditional \"BUILD_BITCOIN_LIBS\" was never defined.
+if test -z "${BUILD_TRIPCOIN_LIBS_TRUE}" && test -z "${BUILD_TRIPCOIN_LIBS_FALSE}"; then
+  as_fn_error $? "conditional \"BUILD_TRIPCOIN_LIBS\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${TARGET_DARWIN_TRUE}" && test -z "${TARGET_DARWIN_FALSE}"; then

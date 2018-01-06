@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_TRANSACTIONVIEW_H
-#define BITCOIN_QT_TRANSACTIONVIEW_H
+#ifndef TRIPCOIN_QT_TRANSACTIONVIEW_H
+#define TRIPCOIN_QT_TRANSACTIONVIEW_H
 
 #include "guiutil.h"
 
@@ -112,4 +112,4 @@ public slots:
 
 };
 
-#endif // BITCOIN_QT_TRANSACTIONVIEW_H
+#endif // TRIPCOIN_QT_TRANSACTIONVIEW_H
