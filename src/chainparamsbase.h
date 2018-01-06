@@ -9,7 +9,7 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between tripcoin-cli and bitcoind)
+ * CBaseChainParams defines the base parameters (shared between tripcoin-cli and tripcoind)
  * of a given instance of the Tripcoin system.
  */
 class CBaseChainParams

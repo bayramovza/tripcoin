@@ -1,9 +1,9 @@
 Regression tests of RPC interface
 =================================
 
-### [python-bitcoinrpc](https://github.com/jgarzik/python-bitcoinrpc)
-Git subtree of [https://github.com/jgarzik/python-bitcoinrpc](https://github.com/jgarzik/python-bitcoinrpc).
-Changes to python-bitcoinrpc should be made upstream, and then
+### [python-tripcoinrpc](https://github.com/jgarzik/python-tripcoinrpc)
+Git subtree of [https://github.com/jgarzik/python-tripcoinrpc](https://github.com/jgarzik/python-tripcoinrpc).
+Changes to python-tripcoinrpc should be made upstream, and then
 pulled here using git subtree.
 
 ### [test_framework/test_framework.py](test_framework/test_framework.py)
@@ -27,9 +27,9 @@ Possible options:
 
 ````
 -h, --help       show this help message and exit
-  --nocleanup      Leave bitcoinds and test.* datadir on exit or error
-  --noshutdown     Don't stop bitcoinds after the test execution
-  --srcdir=SRCDIR  Source directory containing bitcoind/tripcoin-cli (default:
+  --nocleanup      Leave tripcoinds and test.* datadir on exit or error
+  --noshutdown     Don't stop tripcoinds after the test execution
+  --srcdir=SRCDIR  Source directory containing tripcoind/tripcoin-cli (default:
                    ../../src)
   --tmpdir=TMPDIR  Root directory for datadirs
   --tracerpc       Print out all RPC calls as they are made
@@ -51,5 +51,5 @@ to recover with:
 
 ```bash
 rm -rf cache
-killall bitcoind
+killall tripcoind
 ```

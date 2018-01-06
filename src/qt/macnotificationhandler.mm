@@ -13,7 +13,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"org.bitcoinfoundation.Tripcoin-Qt";
+        return @"org.tripcoinfoundation.Tripcoin-Qt";
     } else {
         return [self __bundleIdentifier];
     }

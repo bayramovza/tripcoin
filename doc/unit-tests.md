@@ -6,13 +6,13 @@ and tests weren't explicitly disabled.
 
 After configuring, they can be run with 'make check'.
 
-To run the bitcoind tests manually, launch src/test/test_bitcoin .
+To run the tripcoind tests manually, launch src/test/test_tripcoin .
 
-To add more bitcoind tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
+To add more tripcoind tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
 .cpp files in the test/ directory or add new .cpp files that
 implement new BOOST_AUTO_TEST_SUITE sections.
 
-To run the tripcoin-qt tests manually, launch src/qt/test/test_bitcoin-qt
+To run the tripcoin-qt tests manually, launch src/qt/test/test_tripcoin-qt
 
 To add more tripcoin-qt tests, add them to the `src/qt/test/` directory and
 the `src/qt/test/test_main.cpp` file.

@@ -24,7 +24,7 @@ fi
 
 set -f
 
-BITCOIND=${BITCOIND:-${1}/bitcoind}
+BITCOIND=${BITCOIND:-${1}/tripcoind}
 CLI=${BITCOINCLI:-${1}/tripcoin-cli}
 
 DIR="${BASH_SOURCE%/*}"

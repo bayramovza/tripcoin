@@ -5,7 +5,7 @@
 #include "main.h"
 #include "pow.h"
 #include "util.h"
-#include "test/test_bitcoin.h"
+#include "test/test_tripcoin.h"
 
 #include <boost/test/unit_test.hpp>
 

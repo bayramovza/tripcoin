@@ -192,7 +192,7 @@ void Intro::pickDataDirectory()
     }
     /* Only override -datadir if different from the default, to make it possible to
      * override -datadir in the tripcoin.conf file in the default data directory
-     * (to be consistent with bitcoind behavior)
+     * (to be consistent with tripcoind behavior)
      */
     if(dataDir != getDefaultDataDirectory())
         SoftSetArg("-datadir", GUIUtil::qstringToBoostPath(dataDir).string()); // use OS locale for path setting

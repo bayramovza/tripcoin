@@ -6,7 +6,7 @@
 #include "config/tripcoin-config.h"
 #endif
 
-#include "bitcoingui.h"
+#include "tripcoingui.h"
 
 #include "clientmodel.h"
 #include "guiconstants.h"
@@ -134,11 +134,11 @@ static void initTranslations(QTranslator &qtTranslatorBase, QTranslator &qtTrans
     if (qtTranslator.load("qt_" + lang_territory, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         QApplication::installTranslator(&qtTranslator);
 
-    // Load e.g. bitcoin_de.qm (shortcut "de" needs to be defined in tripcoin.qrc)
+    // Load e.g. tripcoin_de.qm (shortcut "de" needs to be defined in tripcoin.qrc)
     if (translatorBase.load(lang, ":/translations/"))
         QApplication::installTranslator(&translatorBase);
 
-    // Load e.g. bitcoin_de_DE.qm (shortcut "de_DE" needs to be defined in tripcoin.qrc)
+    // Load e.g. tripcoin_de_DE.qm (shortcut "de_DE" needs to be defined in tripcoin.qrc)
     if (translator.load(lang_territory, ":/translations/"))
         QApplication::installTranslator(&translator);
 }
@@ -505,7 +505,7 @@ int main(int argc, char *argv[])
 #endif
 
     Q_INIT_RESOURCE(tripcoin);
-    Q_INIT_RESOURCE(bitcoin_locale);
+    Q_INIT_RESOURCE(tripcoin_locale);
 
     BitcoinApplication app(argc, argv);
 #if QT_VERSION > 0x050100

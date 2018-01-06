@@ -1618,7 +1618,7 @@ Optional Packages:
                           specify protoc bin path
   --with-utils            build tripcoin-cli tripcoin-tx (default=yes)
   --with-libs             build libraries (default=yes)
-  --with-daemon           build bitcoind daemon (default=yes)
+  --with-daemon           build tripcoind daemon (default=yes)
   --with-incompatible-bdb allow using a bdb version other than 4.8
   --with-gui[=no|qt4|qt5|auto]
                           build tripcoin-qt GUI (default=auto, qt4 tried first)
@@ -16768,27 +16768,27 @@ CPPFLAGS="$CPPFLAGS -DBOOST_SPIRIT_THREADSAFE -DHAVE_BUILD_INFO -D__STDC_FORMAT_
 
 # Check whether --with-utils was given.
 if test "${with_utils+set}" = set; then :
-  withval=$with_utils; build_bitcoin_utils=$withval
+  withval=$with_utils; build_tripcoin_utils=$withval
 else
-  build_bitcoin_utils=yes
+  build_tripcoin_utils=yes
 fi
 
 
 
 # Check whether --with-libs was given.
 if test "${with_libs+set}" = set; then :
-  withval=$with_libs; build_bitcoin_libs=$withval
+  withval=$with_libs; build_tripcoin_libs=$withval
 else
-  build_bitcoin_libs=yes
+  build_tripcoin_libs=yes
 fi
 
 
 
 # Check whether --with-daemon was given.
 if test "${with_daemon+set}" = set; then :
-  withval=$with_daemon; build_bitcoind=$withval
+  withval=$with_daemon; build_tripcoind=$withval
 else
-  build_bitcoind=yes
+  build_tripcoind=yes
 fi
 
 
@@ -20689,14 +20689,14 @@ fi
 # Check whether --with-gui was given.
 if test "${with_gui+set}" = set; then :
   withval=$with_gui;
-     bitcoin_qt_want_version=$withval
-     if test x$bitcoin_qt_want_version = xyes; then
-       bitcoin_qt_force=yes
-       bitcoin_qt_want_version=auto
+     tripcoin_qt_want_version=$withval
+     if test x$tripcoin_qt_want_version = xyes; then
+       tripcoin_qt_force=yes
+       tripcoin_qt_want_version=auto
      fi
 
 else
-  bitcoin_qt_want_version=auto
+  tripcoin_qt_want_version=auto
 fi
 
 
@@ -20753,7 +20753,7 @@ fi
 
   if test x$use_pkgconfig = xyes; then
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
 
@@ -20761,20 +20761,20 @@ fi
   if test x$auto_priority_version = x; then
     auto_priority_version=qt5
   fi
-    if test x$bitcoin_qt_want_version = xqt5 ||  ( test x$bitcoin_qt_want_version = xauto && test x$auto_priority_version = xqt5 ); then
+    if test x$tripcoin_qt_want_version = xqt5 ||  ( test x$tripcoin_qt_want_version = xauto && test x$auto_priority_version = xqt5 ); then
       QT_LIB_PREFIX=Qt5
-      bitcoin_qt_got_major_vers=5
+      tripcoin_qt_got_major_vers=5
     else
       QT_LIB_PREFIX=Qt
-      bitcoin_qt_got_major_vers=4
+      tripcoin_qt_got_major_vers=4
     fi
     qt5_modules="Qt5Core Qt5Gui Qt5Network Qt5Widgets"
     qt4_modules="QtCore QtGui QtNetwork"
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
-      if test x$bitcoin_qt_want_version = xqt5 || ( test x$bitcoin_qt_want_version = xauto && test x$auto_priority_version = xqt5 ); then
+      if test x$tripcoin_qt_want_version = xqt5 || ( test x$tripcoin_qt_want_version = xauto && test x$auto_priority_version = xqt5 ); then
 
 pkg_failed=no
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for QT" >&5
@@ -20846,7 +20846,7 @@ else
 $as_echo "yes" >&6; }
 	QT_INCLUDES="$QT_CFLAGS"; have_qt=yes
 fi
-      elif test x$bitcoin_qt_want_version = xqt4 || ( test x$bitcoin_qt_want_version = xauto && test x$auto_priority_version = xqt4 ); then
+      elif test x$tripcoin_qt_want_version = xqt4 || ( test x$tripcoin_qt_want_version = xauto && test x$auto_priority_version = xqt4 ); then
 
 pkg_failed=no
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for QT" >&5
@@ -20920,7 +20920,7 @@ $as_echo "yes" >&6; }
 fi
       fi
 
-            if test x$have_qt = xno && test x$bitcoin_qt_want_version = xauto; then
+            if test x$have_qt = xno && test x$tripcoin_qt_want_version = xauto; then
         if test x$auto_priority_version = x$qt5; then
 
 pkg_failed=no
@@ -20991,7 +20991,7 @@ else
 	QT_LIBS=$pkg_cv_QT_LIBS
         { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 $as_echo "yes" >&6; }
-	QT_INCLUDES="$QT_CFLAGS"; have_qt=yes; QT_LIB_PREFIX=Qt; bitcoin_qt_got_major_vers=4
+	QT_INCLUDES="$QT_CFLAGS"; have_qt=yes; QT_LIB_PREFIX=Qt; tripcoin_qt_got_major_vers=4
 fi
         else
 
@@ -21063,20 +21063,20 @@ else
 	QT_LIBS=$pkg_cv_QT_LIBS
         { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 $as_echo "yes" >&6; }
-	QT_INCLUDES="$QT_CFLAGS"; have_qt=yes; QT_LIB_PREFIX=Qt5; bitcoin_qt_got_major_vers=5
+	QT_INCLUDES="$QT_CFLAGS"; have_qt=yes; QT_LIB_PREFIX=Qt5; tripcoin_qt_got_major_vers=5
 fi
         fi
       fi
       if test x$have_qt != xyes; then
         have_qt=no
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Qt dependencies not found; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: Qt dependencies not found; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "Qt dependencies not found" "$LINENO" 5
   fi
@@ -21089,7 +21089,7 @@ $as_echo "$as_me: WARNING: Qt dependencies not found; tripcoin-qt frontend will 
   fi
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
 
@@ -21251,13 +21251,13 @@ fi
 
   else
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
   TEMP_CPPFLAGS="$CPPFLAGS"
   TEMP_LIBS="$LIBS"
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
     if test x$qt_include_path != x; then
@@ -21272,20 +21272,20 @@ fi
 
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
     ac_fn_cxx_check_header_mongrel "$LINENO" "QtPlugin" "ac_cv_header_QtPlugin" "$ac_includes_default"
 if test "x$ac_cv_header_QtPlugin" = xyes; then :
 
 else
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: QtCore headers missing; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: QtCore headers missing; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "QtCore headers missing" "$LINENO" 5
   fi
@@ -21299,20 +21299,20 @@ fi
   fi
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
     ac_fn_cxx_check_header_mongrel "$LINENO" "QApplication" "ac_cv_header_QApplication" "$ac_includes_default"
 if test "x$ac_cv_header_QApplication" = xyes; then :
 
 else
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: QtGui headers missing; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: QtGui headers missing; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "QtGui headers missing" "$LINENO" 5
   fi
@@ -21326,20 +21326,20 @@ fi
   fi
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
     ac_fn_cxx_check_header_mongrel "$LINENO" "QLocalSocket" "ac_cv_header_QLocalSocket" "$ac_includes_default"
 if test "x$ac_cv_header_QLocalSocket" = xyes; then :
 
 else
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: QtNetwork headers missing; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: QtNetwork headers missing; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "QtNetwork headers missing" "$LINENO" 5
   fi
@@ -21354,14 +21354,14 @@ fi
 
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
-    if test x$bitcoin_qt_want_version = xauto; then
+    if test x$tripcoin_qt_want_version = xauto; then
 
   { $as_echo "$as_me:${as_lineno-$LINENO}: checking for Qt 5" >&5
 $as_echo_n "checking for Qt 5... " >&6; }
-if ${bitcoin_cv_qt5+:} false; then :
+if ${tripcoin_cv_qt5+:} false; then :
   $as_echo_n "(cached) " >&6
 else
 
@@ -21383,22 +21383,22 @@ main ()
 }
 _ACEOF
 if ac_fn_cxx_try_compile "$LINENO"; then :
-  bitcoin_cv_qt5=yes
+  tripcoin_cv_qt5=yes
 else
-  bitcoin_cv_qt5=no
+  tripcoin_cv_qt5=no
 fi
 rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
 
 fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $bitcoin_cv_qt5" >&5
-$as_echo "$bitcoin_cv_qt5" >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $tripcoin_cv_qt5" >&5
+$as_echo "$tripcoin_cv_qt5" >&6; }
     fi
-    if test x$bitcoin_cv_qt5 = xyes || test x$bitcoin_qt_want_version = xqt5; then
+    if test x$tripcoin_cv_qt5 = xyes || test x$tripcoin_qt_want_version = xqt5; then
       QT_LIB_PREFIX=Qt5
-      bitcoin_qt_got_major_vers=5
+      tripcoin_qt_got_major_vers=5
     else
       QT_LIB_PREFIX=Qt
-      bitcoin_qt_got_major_vers=4
+      tripcoin_qt_got_major_vers=4
     fi
 
   else
@@ -21408,7 +21408,7 @@ $as_echo "$bitcoin_cv_qt5" >&6; }
 
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
     LIBS=
@@ -21456,13 +21456,13 @@ _ACEOF
 
 else
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: libimm32 not found; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: libimm32 not found; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "libimm32 not found" "$LINENO" 5
   fi
@@ -21478,7 +21478,7 @@ fi
 
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
     as_ac_Lib=`$as_echo "ac_cv_lib_z ''_main" | $as_tr_sh`
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lz " >&5
@@ -21530,7 +21530,7 @@ fi
   fi
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
     as_ac_Lib=`$as_echo "ac_cv_lib_png ''_main" | $as_tr_sh`
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lpng " >&5
@@ -21582,7 +21582,7 @@ fi
   fi
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
     as_ac_Lib=`$as_echo "ac_cv_lib_jpeg ''_main" | $as_tr_sh`
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -ljpeg " >&5
@@ -21634,7 +21634,7 @@ fi
   fi
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
     as_ac_Lib=`$as_echo "ac_cv_lib_pcre16 ''_main" | $as_tr_sh`
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lpcre16 " >&5
@@ -21686,7 +21686,7 @@ fi
   fi
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
     as_ac_Lib=`$as_echo "ac_cv_lib_${QT_LIB_PREFIX}Core   ''_main" | $as_tr_sh`
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -l${QT_LIB_PREFIX}Core   " >&5
@@ -21729,13 +21729,13 @@ _ACEOF
 
 else
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: lib$QT_LIB_PREFIXCore not found; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: lib$QT_LIB_PREFIXCore not found; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "lib$QT_LIB_PREFIXCore not found" "$LINENO" 5
   fi
@@ -21748,7 +21748,7 @@ fi
   fi
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
     as_ac_Lib=`$as_echo "ac_cv_lib_${QT_LIB_PREFIX}Gui    ''_main" | $as_tr_sh`
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -l${QT_LIB_PREFIX}Gui    " >&5
@@ -21791,13 +21791,13 @@ _ACEOF
 
 else
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: lib$QT_LIB_PREFIXGui not found; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: lib$QT_LIB_PREFIXGui not found; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "lib$QT_LIB_PREFIXGui not found" "$LINENO" 5
   fi
@@ -21810,7 +21810,7 @@ fi
   fi
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
     as_ac_Lib=`$as_echo "ac_cv_lib_${QT_LIB_PREFIX}Network''_main" | $as_tr_sh`
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -l${QT_LIB_PREFIX}Network" >&5
@@ -21853,13 +21853,13 @@ _ACEOF
 
 else
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: lib$QT_LIB_PREFIXNetwork not found; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: lib$QT_LIB_PREFIXNetwork not found; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "lib$QT_LIB_PREFIXNetwork not found" "$LINENO" 5
   fi
@@ -21871,9 +21871,9 @@ fi
 
   fi
 
-  if test x$bitcoin_qt_got_major_vers = x5; then
+  if test x$tripcoin_qt_got_major_vers = x5; then
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
     as_ac_Lib=`$as_echo "ac_cv_lib_${QT_LIB_PREFIX}Widgets''_main" | $as_tr_sh`
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -l${QT_LIB_PREFIX}Widgets" >&5
@@ -21916,13 +21916,13 @@ _ACEOF
 
 else
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: lib$QT_LIB_PREFIXWidgets not found; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: lib$QT_LIB_PREFIXWidgets not found; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "lib$QT_LIB_PREFIXWidgets not found" "$LINENO" 5
   fi
@@ -21939,7 +21939,7 @@ fi
   LIBS="$TEMP_LIBS"
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
     LIBS=
@@ -22073,16 +22073,16 @@ fi
   fi
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
   TEMP_CPPFLAGS=$CPPFLAGS
   CPPFLAGS=$QT_INCLUDES
-  if test x$bitcoin_qt_got_major_vers = x5; then
+  if test x$tripcoin_qt_got_major_vers = x5; then
 
   { $as_echo "$as_me:${as_lineno-$LINENO}: checking for static Qt" >&5
 $as_echo_n "checking for static Qt... " >&6; }
-if ${bitcoin_cv_static_qt+:} false; then :
+if ${tripcoin_cv_static_qt+:} false; then :
   $as_echo_n "(cached) " >&6
 else
 
@@ -22104,22 +22104,22 @@ main ()
 }
 _ACEOF
 if ac_fn_cxx_try_compile "$LINENO"; then :
-  bitcoin_cv_static_qt=yes
+  tripcoin_cv_static_qt=yes
 else
-  bitcoin_cv_static_qt=no
+  tripcoin_cv_static_qt=no
 fi
 rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
 
 fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $bitcoin_cv_static_qt" >&5
-$as_echo "$bitcoin_cv_static_qt" >&6; }
-  if test xbitcoin_cv_static_qt = xyes; then
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $tripcoin_cv_static_qt" >&5
+$as_echo "$tripcoin_cv_static_qt" >&6; }
+  if test xtripcoin_cv_static_qt = xyes; then
 
 $as_echo "#define QT_STATICPLUGIN 1" >>confdefs.h
 
   fi
 
-    if test x$bitcoin_cv_static_qt = xyes; then
+    if test x$tripcoin_cv_static_qt = xyes; then
 
 $as_echo "#define QT_STATICPLUGIN 1" >>confdefs.h
 
@@ -22245,13 +22245,13 @@ $as_echo "yes" >&6; }; QT_LIBS="-lqtaccessiblewidgets $QT_LIBS"
 else
   { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; };
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Could not resolve: -lqtaccessiblewidgets; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: Could not resolve: -lqtaccessiblewidgets; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "Could not resolve: -lqtaccessiblewidgets" "$LINENO" 5
   fi
@@ -22287,13 +22287,13 @@ $as_echo "yes" >&6; }; QT_LIBS="-lqwindows $QT_LIBS"
 else
   { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; };
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Could not resolve: -lqwindows; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: Could not resolve: -lqwindows; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "Could not resolve: -lqwindows" "$LINENO" 5
   fi
@@ -22423,13 +22423,13 @@ $as_echo "yes" >&6; }; QT_LIBS="-lqxcb -lxcb-static $QT_LIBS"
 else
   { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; };
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Could not resolve: -lqxcb -lxcb-static; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: Could not resolve: -lqxcb -lxcb-static; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "Could not resolve: -lqxcb -lxcb-static" "$LINENO" 5
   fi
@@ -22597,13 +22597,13 @@ $as_echo "yes" >&6; }; QT_LIBS="-lqcocoa $QT_LIBS"
 else
   { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; };
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Could not resolve: -lqcocoa; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: Could not resolve: -lqcocoa; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "Could not resolve: -lqcocoa" "$LINENO" 5
   fi
@@ -22657,13 +22657,13 @@ $as_echo "yes" >&6; }; QT_LIBS="-lqcncodecs -lqjpcodecs -lqtwcodecs -lqkrcodecs 
 else
   { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; };
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Could not resolve: -lqcncodecs -lqjpcodecs -lqtwcodecs -lqkrcodecs -lqtaccessiblewidgets; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: Could not resolve: -lqcncodecs -lqjpcodecs -lqtwcodecs -lqkrcodecs -lqtaccessiblewidgets; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "Could not resolve: -lqcncodecs -lqjpcodecs -lqtwcodecs -lqkrcodecs -lqtaccessiblewidgets" "$LINENO" 5
   fi
@@ -22684,18 +22684,18 @@ rm -f core conftest.err conftest.$ac_objext \
 
 
   if test x$use_pkgconfig$qt_bin_path = xyes; then
-    if test x$bitcoin_qt_got_major_vers = x5; then
+    if test x$tripcoin_qt_got_major_vers = x5; then
       qt_bin_path="`$PKG_CONFIG --variable=host_bins Qt5Core 2>/dev/null`"
     fi
   fi
 
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
     if test "x$qt_bin_path" != "x"; then
-      for ac_prog in moc-qt${bitcoin_qt_got_major_vers} moc${bitcoin_qt_got_major_vers} moc
+      for ac_prog in moc-qt${tripcoin_qt_got_major_vers} moc${tripcoin_qt_got_major_vers} moc
 do
   # Extract the first word of "$ac_prog", so it can be a program name with args.
 set dummy $ac_prog; ac_word=$2
@@ -22741,7 +22741,7 @@ fi
 done
 
     else
-      for ac_prog in moc-qt${bitcoin_qt_got_major_vers} moc${bitcoin_qt_got_major_vers} moc
+      for ac_prog in moc-qt${tripcoin_qt_got_major_vers} moc${tripcoin_qt_got_major_vers} moc
 do
   # Extract the first word of "$ac_prog", so it can be a program name with args.
 set dummy $ac_prog; ac_word=$2
@@ -22789,13 +22789,13 @@ done
     fi
     if test "x$MOC" = "x" && test "x" != "xyes"; then
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: MOC not found; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: MOC not found; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "MOC not found" "$LINENO" 5
   fi
@@ -22810,11 +22810,11 @@ $as_echo "$as_me: WARNING: MOC not found; tripcoin-qt frontend will not be built
 
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
     if test "x$qt_bin_path" != "x"; then
-      for ac_prog in uic-qt${bitcoin_qt_got_major_vers} uic${bitcoin_qt_got_major_vers} uic
+      for ac_prog in uic-qt${tripcoin_qt_got_major_vers} uic${tripcoin_qt_got_major_vers} uic
 do
   # Extract the first word of "$ac_prog", so it can be a program name with args.
 set dummy $ac_prog; ac_word=$2
@@ -22860,7 +22860,7 @@ fi
 done
 
     else
-      for ac_prog in uic-qt${bitcoin_qt_got_major_vers} uic${bitcoin_qt_got_major_vers} uic
+      for ac_prog in uic-qt${tripcoin_qt_got_major_vers} uic${tripcoin_qt_got_major_vers} uic
 do
   # Extract the first word of "$ac_prog", so it can be a program name with args.
 set dummy $ac_prog; ac_word=$2
@@ -22908,13 +22908,13 @@ done
     fi
     if test "x$UIC" = "x" && test "x" != "xyes"; then
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: UIC not found; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: UIC not found; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "UIC not found" "$LINENO" 5
   fi
@@ -22929,11 +22929,11 @@ $as_echo "$as_me: WARNING: UIC not found; tripcoin-qt frontend will not be built
 
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
     if test "x$qt_bin_path" != "x"; then
-      for ac_prog in rcc-qt${bitcoin_qt_got_major_vers} rcc${bitcoin_qt_got_major_vers} rcc
+      for ac_prog in rcc-qt${tripcoin_qt_got_major_vers} rcc${tripcoin_qt_got_major_vers} rcc
 do
   # Extract the first word of "$ac_prog", so it can be a program name with args.
 set dummy $ac_prog; ac_word=$2
@@ -22979,7 +22979,7 @@ fi
 done
 
     else
-      for ac_prog in rcc-qt${bitcoin_qt_got_major_vers} rcc${bitcoin_qt_got_major_vers} rcc
+      for ac_prog in rcc-qt${tripcoin_qt_got_major_vers} rcc${tripcoin_qt_got_major_vers} rcc
 do
   # Extract the first word of "$ac_prog", so it can be a program name with args.
 set dummy $ac_prog; ac_word=$2
@@ -23027,13 +23027,13 @@ done
     fi
     if test "x$RCC" = "x" && test "x" != "xyes"; then
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: RCC not found; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: RCC not found; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "RCC not found" "$LINENO" 5
   fi
@@ -23048,11 +23048,11 @@ $as_echo "$as_me: WARNING: RCC not found; tripcoin-qt frontend will not be built
 
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
     if test "x$qt_bin_path" != "x"; then
-      for ac_prog in lrelease-qt${bitcoin_qt_got_major_vers} lrelease${bitcoin_qt_got_major_vers} lrelease
+      for ac_prog in lrelease-qt${tripcoin_qt_got_major_vers} lrelease${tripcoin_qt_got_major_vers} lrelease
 do
   # Extract the first word of "$ac_prog", so it can be a program name with args.
 set dummy $ac_prog; ac_word=$2
@@ -23098,7 +23098,7 @@ fi
 done
 
     else
-      for ac_prog in lrelease-qt${bitcoin_qt_got_major_vers} lrelease${bitcoin_qt_got_major_vers} lrelease
+      for ac_prog in lrelease-qt${tripcoin_qt_got_major_vers} lrelease${tripcoin_qt_got_major_vers} lrelease
 do
   # Extract the first word of "$ac_prog", so it can be a program name with args.
 set dummy $ac_prog; ac_word=$2
@@ -23146,13 +23146,13 @@ done
     fi
     if test "x$LRELEASE" = "x" && test "x" != "xyes"; then
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: LRELEASE not found; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: LRELEASE not found; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "LRELEASE not found" "$LINENO" 5
   fi
@@ -23167,11 +23167,11 @@ $as_echo "$as_me: WARNING: LRELEASE not found; tripcoin-qt frontend will not be 
 
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
     if test "x$qt_bin_path" != "x"; then
-      for ac_prog in lupdate-qt${bitcoin_qt_got_major_vers} lupdate${bitcoin_qt_got_major_vers} lupdate
+      for ac_prog in lupdate-qt${tripcoin_qt_got_major_vers} lupdate${tripcoin_qt_got_major_vers} lupdate
 do
   # Extract the first word of "$ac_prog", so it can be a program name with args.
 set dummy $ac_prog; ac_word=$2
@@ -23217,7 +23217,7 @@ fi
 done
 
     else
-      for ac_prog in lupdate-qt${bitcoin_qt_got_major_vers} lupdate${bitcoin_qt_got_major_vers} lupdate
+      for ac_prog in lupdate-qt${tripcoin_qt_got_major_vers} lupdate${tripcoin_qt_got_major_vers} lupdate
 do
   # Extract the first word of "$ac_prog", so it can be a program name with args.
 set dummy $ac_prog; ac_word=$2
@@ -23265,13 +23265,13 @@ done
     fi
     if test "x$LUPDATE" = "x" && test "xyes" != "xyes"; then
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: LUPDATE not found; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: LUPDATE not found; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "LUPDATE not found" "$LINENO" 5
   fi
@@ -23289,7 +23289,7 @@ $as_echo "$as_me: WARNING: LUPDATE not found; tripcoin-qt frontend will not be b
   case $host in
     *darwin*)
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
        MOC_DEFS="${MOC_DEFS} -DQ_OS_MAC"
@@ -23341,7 +23341,7 @@ fi
     ;;
     *mingw*)
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
          { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether the linker accepts -mwindows" >&5
@@ -23393,17 +23393,17 @@ fi
     { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build Tripcoin Core GUI" >&5
 $as_echo_n "checking whether to build Tripcoin Core GUI... " >&6; }
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
-    bitcoin_enable_qt=yes
-    bitcoin_enable_qt_test=yes
+    tripcoin_enable_qt=yes
+    tripcoin_enable_qt_test=yes
     if test x$have_qt_test = xno; then
-      bitcoin_enable_qt_test=no
+      tripcoin_enable_qt_test=no
     fi
-    bitcoin_enable_qt_dbus=no
+    tripcoin_enable_qt_dbus=no
     if test x$use_dbus != xno && test x$have_qt_dbus = xyes; then
-      bitcoin_enable_qt_dbus=yes
+      tripcoin_enable_qt_dbus=yes
     fi
     if test x$use_dbus = xyes && test x$have_qt_dbus = xno; then
       as_fn_error $? "\"libQtDBus not found. Install libQtDBus or remove --with-qtdbus.\"" "$LINENO" 5
@@ -23416,12 +23416,12 @@ $as_echo "$as_me: WARNING: \"lupdate is required to update qt translations\"" >&
   else
     true
 
-    bitcoin_enable_qt=no
+    tripcoin_enable_qt=no
 
   fi
 
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: $bitcoin_enable_qt (Qt${bitcoin_qt_got_major_vers})" >&5
-$as_echo "$bitcoin_enable_qt (Qt${bitcoin_qt_got_major_vers})" >&6; }
+  { $as_echo "$as_me:${as_lineno-$LINENO}: result: $tripcoin_enable_qt (Qt${tripcoin_qt_got_major_vers})" >&5
+$as_echo "$tripcoin_enable_qt (Qt${tripcoin_qt_got_major_vers})" >&6; }
 
 
 
@@ -23430,12 +23430,12 @@ $as_echo "$bitcoin_enable_qt (Qt${bitcoin_qt_got_major_vers})" >&6; }
 
 
 
-  QT_SELECT=qt${bitcoin_qt_got_major_vers}
+  QT_SELECT=qt${tripcoin_qt_got_major_vers}
 
 
 
 
-if test x$build_bitcoin_utils$build_bitcoind$bitcoin_enable_qt$use_tests = xnononono; then
+if test x$build_tripcoin_utils$build_tripcoind$tripcoin_enable_qt$use_tests = xnononono; then
     use_boost=no
 else
     use_boost=yes
@@ -25490,7 +25490,7 @@ $as_echo "yes" >&6; }
 
 fi
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
 pkg_failed=no
@@ -25552,13 +25552,13 @@ fi
 	echo "$PROTOBUF_PKG_ERRORS" >&5
 
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: libprotobuf not found; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: libprotobuf not found; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "libprotobuf not found" "$LINENO" 5
   fi
@@ -25567,13 +25567,13 @@ elif test $pkg_failed = untried; then
      	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: libprotobuf not found; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: libprotobuf not found; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "libprotobuf not found" "$LINENO" 5
   fi
@@ -25592,7 +25592,7 @@ fi
 
       if test x$use_qr != xno; then
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
 pkg_failed=no
@@ -25765,7 +25765,7 @@ fi
 
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
     as_ac_Lib=`$as_echo "ac_cv_lib_protobuf ''_main" | $as_tr_sh`
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lprotobuf " >&5
@@ -25803,13 +25803,13 @@ if eval test \"x\$"$as_ac_Lib"\" = x"yes"; then :
   PROTOBUF_LIBS=-lprotobuf
 else
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: libprotobuf not found; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: libprotobuf not found; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "libprotobuf not found" "$LINENO" 5
   fi
@@ -25823,7 +25823,7 @@ fi
 
   if test x$use_qr != xno; then
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
     { $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lqrencode" >&5
 $as_echo_n "checking for main in -lqrencode... " >&6; }
@@ -25867,7 +25867,7 @@ fi
   fi
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
     ac_fn_cxx_check_header_mongrel "$LINENO" "qrencode.h" "ac_cv_header_qrencode_h" "$ac_includes_default"
 if test "x$ac_cv_header_qrencode_h" = xyes; then :
@@ -25961,7 +25961,7 @@ LIBS="$LIBS_TEMP"
 
 
 
-  if test "x$bitcoin_enable_qt" != "xno" && test x$bitcoin_qt_want_version != xno; then
+  if test "x$tripcoin_enable_qt" != "xno" && test x$tripcoin_qt_want_version != xno; then
     true
 
     if test "x$protoc_bin_path" != "x"; then
@@ -26059,13 +26059,13 @@ done
     fi
     if test "x$PROTOC" = "x" && test "x" != "xyes"; then
 
-  if test "x$bitcoin_qt_want_version" = "xauto" && test x$bitcoin_qt_force != xyes; then
-    if test x$bitcoin_enable_qt != xno; then
+  if test "x$tripcoin_qt_want_version" = "xauto" && test x$tripcoin_qt_force != xyes; then
+    if test x$tripcoin_enable_qt != xno; then
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: PROTOC not found; tripcoin-qt frontend will not be built" >&5
 $as_echo "$as_me: WARNING: PROTOC not found; tripcoin-qt frontend will not be built" >&2;}
     fi
-    bitcoin_enable_qt=no
-    bitcoin_enable_qt_test=no
+    tripcoin_enable_qt=no
+    tripcoin_enable_qt_test=no
   else
     as_fn_error $? "PROTOC not found" "$LINENO" 5
   fi
@@ -26079,9 +26079,9 @@ $as_echo "$as_me: WARNING: PROTOC not found; tripcoin-qt frontend will not be bu
 
 
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build bitcoind" >&5
-$as_echo_n "checking whether to build bitcoind... " >&6; }
- if test x$build_bitcoind = xyes; then
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build tripcoind" >&5
+$as_echo_n "checking whether to build tripcoind... " >&6; }
+ if test x$build_tripcoind = xyes; then
   BUILD_BITCOIND_TRUE=
   BUILD_BITCOIND_FALSE='#'
 else
@@ -26089,12 +26089,12 @@ else
   BUILD_BITCOIND_FALSE=
 fi
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $build_bitcoind" >&5
-$as_echo "$build_bitcoind" >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $build_tripcoind" >&5
+$as_echo "$build_tripcoind" >&6; }
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build utils (tripcoin-cli tripcoin-tx)" >&5
 $as_echo_n "checking whether to build utils (tripcoin-cli tripcoin-tx)... " >&6; }
- if test x$build_bitcoin_utils = xyes; then
+ if test x$build_tripcoin_utils = xyes; then
   BUILD_BITCOIN_UTILS_TRUE=
   BUILD_BITCOIN_UTILS_FALSE='#'
 else
@@ -26102,12 +26102,12 @@ else
   BUILD_BITCOIN_UTILS_FALSE=
 fi
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $build_bitcoin_utils" >&5
-$as_echo "$build_bitcoin_utils" >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $build_tripcoin_utils" >&5
+$as_echo "$build_tripcoin_utils" >&6; }
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build libraries" >&5
 $as_echo_n "checking whether to build libraries... " >&6; }
- if test x$build_bitcoin_libs = xyes; then
+ if test x$build_tripcoin_libs = xyes; then
   BUILD_BITCOIN_LIBS_TRUE=
   BUILD_BITCOIN_LIBS_FALSE='#'
 else
@@ -26115,15 +26115,15 @@ else
   BUILD_BITCOIN_LIBS_FALSE=
 fi
 
-if test x$build_bitcoin_libs = xyes; then
+if test x$build_tripcoin_libs = xyes; then
 
 $as_echo "#define HAVE_CONSENSUS_LIB 1" >>confdefs.h
 
-  ac_config_files="$ac_config_files libbitcoinconsensus.pc:libbitcoinconsensus.pc.in"
+  ac_config_files="$ac_config_files libtripcoinconsensus.pc:libtripcoinconsensus.pc.in"
 
 fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $build_bitcoin_libs" >&5
-$as_echo "$build_bitcoin_libs" >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $build_tripcoin_libs" >&5
+$as_echo "$build_tripcoin_libs" >&6; }
 
 ac_ext=c
 ac_cpp='$CPP $CPPFLAGS'
@@ -26239,17 +26239,17 @@ $as_echo "no" >&6; }
   fi
 fi
 
-if test x$bitcoin_enable_qt != xno; then
+if test x$tripcoin_enable_qt != xno; then
   BUILD_QT=qt
     { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build GUI with support for D-Bus" >&5
 $as_echo_n "checking whether to build GUI with support for D-Bus... " >&6; }
-  if test x$bitcoin_enable_qt_dbus != xno; then
+  if test x$tripcoin_enable_qt_dbus != xno; then
 
 $as_echo "#define USE_DBUS 1" >>confdefs.h
 
   fi
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: $bitcoin_enable_qt_dbus" >&5
-$as_echo "$bitcoin_enable_qt_dbus" >&6; }
+  { $as_echo "$as_me:${as_lineno-$LINENO}: result: $tripcoin_enable_qt_dbus" >&5
+$as_echo "$tripcoin_enable_qt_dbus" >&6; }
 
     { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build GUI with support for QR codes" >&5
 $as_echo_n "checking whether to build GUI with support for QR codes... " >&6; }
@@ -26278,9 +26278,9 @@ $as_echo "no" >&6; }
 $as_echo "$as_me: WARNING: \"xgettext is required to update qt translations\"" >&2;}
   fi
 
-  { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build test_bitcoin-qt" >&5
-$as_echo_n "checking whether to build test_bitcoin-qt... " >&6; }
-  if test x$use_tests$bitcoin_enable_qt_test = xyesyes; then
+  { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build test_tripcoin-qt" >&5
+$as_echo_n "checking whether to build test_tripcoin-qt... " >&6; }
+  if test x$use_tests$tripcoin_enable_qt_test = xyesyes; then
     { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 $as_echo "yes" >&6; }
     BUILD_TEST_QT="test"
@@ -26290,8 +26290,8 @@ $as_echo "no" >&6; }
   fi
 fi
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build test_bitcoin" >&5
-$as_echo_n "checking whether to build test_bitcoin... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build test_tripcoin" >&5
+$as_echo_n "checking whether to build test_tripcoin... " >&6; }
 if test x$use_tests = xyes; then
   { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 $as_echo "yes" >&6; }
@@ -26311,7 +26311,7 @@ else
 $as_echo "no" >&6; }
 fi
 
-if test x$build_bitcoin_utils$build_bitcoin_libs$build_bitcoind$bitcoin_enable_qt$use_tests = xnonononono; then
+if test x$build_tripcoin_utils$build_tripcoin_libs$build_tripcoind$tripcoin_enable_qt$use_tests = xnonononono; then
   as_fn_error $? "No targets! Please specify at least one of: --with-utils --with-libs --with-daemon --with-gui or --enable-tests" "$LINENO" 5
 fi
 
@@ -26355,7 +26355,7 @@ else
   ENABLE_TESTS_FALSE=
 fi
 
- if test x$bitcoin_enable_qt = xyes; then
+ if test x$tripcoin_enable_qt = xyes; then
   ENABLE_QT_TRUE=
   ENABLE_QT_FALSE='#'
 else
@@ -26363,7 +26363,7 @@ else
   ENABLE_QT_FALSE=
 fi
 
- if test x$use_tests$bitcoin_enable_qt_test = xyesyes; then
+ if test x$use_tests$tripcoin_enable_qt_test = xyesyes; then
   ENABLE_QT_TESTS_TRUE=
   ENABLE_QT_TESTS_FALSE='#'
 else
@@ -26457,7 +26457,7 @@ COPYRIGHT_YEAR=2015
 
 ac_config_files="$ac_config_files Makefile src/Makefile share/setup.nsi share/qt/Info.plist src/test/buildenv.py"
 
-ac_config_files="$ac_config_files qa/pull-tester/run-bitcoind-for-test.sh"
+ac_config_files="$ac_config_files qa/pull-tester/run-tripcoind-for-test.sh"
 
 ac_config_files="$ac_config_files qa/pull-tester/tests-config.sh"
 
@@ -27668,13 +27668,13 @@ do
     "src/config/tripcoin-config.h") CONFIG_HEADERS="$CONFIG_HEADERS src/config/tripcoin-config.h" ;;
     "depfiles") CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
     "libtool") CONFIG_COMMANDS="$CONFIG_COMMANDS libtool" ;;
-    "libbitcoinconsensus.pc") CONFIG_FILES="$CONFIG_FILES libbitcoinconsensus.pc:libbitcoinconsensus.pc.in" ;;
+    "libtripcoinconsensus.pc") CONFIG_FILES="$CONFIG_FILES libtripcoinconsensus.pc:libtripcoinconsensus.pc.in" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "src/Makefile") CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
     "share/setup.nsi") CONFIG_FILES="$CONFIG_FILES share/setup.nsi" ;;
     "share/qt/Info.plist") CONFIG_FILES="$CONFIG_FILES share/qt/Info.plist" ;;
     "src/test/buildenv.py") CONFIG_FILES="$CONFIG_FILES src/test/buildenv.py" ;;
-    "qa/pull-tester/run-bitcoind-for-test.sh") CONFIG_FILES="$CONFIG_FILES qa/pull-tester/run-bitcoind-for-test.sh" ;;
+    "qa/pull-tester/run-tripcoind-for-test.sh") CONFIG_FILES="$CONFIG_FILES qa/pull-tester/run-tripcoind-for-test.sh" ;;
     "qa/pull-tester/tests-config.sh") CONFIG_FILES="$CONFIG_FILES qa/pull-tester/tests-config.sh" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
@@ -29163,7 +29163,7 @@ compiler_lib_search_path=$lt_compiler_lib_search_path_CXX
 _LT_EOF
 
  ;;
-    "qa/pull-tester/run-bitcoind-for-test.sh":F) chmod +x qa/pull-tester/run-bitcoind-for-test.sh ;;
+    "qa/pull-tester/run-tripcoind-for-test.sh":F) chmod +x qa/pull-tester/run-tripcoind-for-test.sh ;;
     "qa/pull-tester/tests-config.sh":F) chmod +x qa/pull-tester/tests-config.sh ;;
 
   esac

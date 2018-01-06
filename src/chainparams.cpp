@@ -86,7 +86,7 @@ public:
         vSeeds.push_back(CDNSSeedData("tripcoin.sipa.be", "seed.tripcoin.sipa.be")); // Pieter Wuille
         vSeeds.push_back(CDNSSeedData("bluematt.me", "dnsseed.bluematt.me")); // Matt Corallo
         vSeeds.push_back(CDNSSeedData("dashjr.org", "dnsseed.tripcoin.dashjr.org")); // Luke Dashjr
-        vSeeds.push_back(CDNSSeedData("bitcoinstats.com", "seed.bitcoinstats.com")); // Christian Decker
+        vSeeds.push_back(CDNSSeedData("tripcoinstats.com", "seed.tripcoinstats.com")); // Christian Decker
         vSeeds.push_back(CDNSSeedData("xf2.org", "bitseed.xf2.org")); // Jeff Garzik
         vSeeds.push_back(CDNSSeedData("tripcoin.jonasschnelli.ch", "seed.tripcoin.jonasschnelli.ch")); // Jonas Schnelli
 

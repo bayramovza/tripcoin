@@ -168,7 +168,7 @@
         <translation>你確定要把錢包加密嗎？</translation>
     </message>
     <message>
-        <source>Tripcoin Core will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
+        <source>Tripcoin Core will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your tripcoins from being stolen by malware infecting your computer.</source>
         <translation>位元幣核心現在要關閉，好完成加密程序。請注意，加密錢包不能完全防止入侵你的電腦的惡意程式偷取位元幣。</translation>
     </message>
     <message>
@@ -2098,7 +2098,7 @@
         <translation>刪掉這個項目</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive less bitcoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less tripcoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>手續費會從要付款出去的金額中扣掉。因此收款人會收到比輸入的金額還要少的位元幣。如果有多個收款人的話，手續費會平均分配來扣除。</translation>
     </message>
     <message>
@@ -2156,7 +2156,7 @@
         <translation>簽署訊息</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive bitcoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <source>You can sign messages/agreements with your addresses to prove you can receive tripcoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>你可以用自己的位址簽署訊息或合約，來證明你可以從該位址收款。但是請小心，不要簽署語意含糊不清，或隨機產生的內容，因為釣魚式詐騙可能會用騙你簽署的手法來冒充是你。只有在語句中的細節你都同意時才簽署。</translation>
     </message>
     <message>
@@ -3102,10 +3102,10 @@
         <translation>此產品也包含了由 OpenSSL Project 所開發的 OpenSSL Toolkit 軟體 &lt;https://www.openssl.org/&gt;, 和由 Eric Young 撰寫的加解密軟體，以及由 Thomas Bernard 所撰寫的 UPnP 軟體。</translation>
     </message>
     <message>
-        <source>To use bitcoind, or the -server option to tripcoin-qt, you must set an rpcpassword in the configuration file:
+        <source>To use tripcoind, or the -server option to tripcoin-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=bitcoinrpc
+rpcuser=tripcoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
@@ -3113,10 +3113,10 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s "Tripcoin Alert" admin@foo.com
 </source>
-        <translation>要使用 bitcoind, 或是對 tripcoin-qt 指定 -server 選項，你必須要在以下設定檔中設定 RPC 密碼(選項: rpcpassword):
+        <translation>要使用 tripcoind, 或是對 tripcoin-qt 指定 -server 選項，你必須要在以下設定檔中設定 RPC 密碼(選項: rpcpassword):
 %s
 建議你使用以下隨機產生的密碼:
-rpcuser=bitcoinrpc
+rpcuser=tripcoinrpc
 rpcpassword=%s
 (你不用記住這個密碼)
 注意使用者名稱(rpcuser)和密碼(rpcpassword)不可以相同！

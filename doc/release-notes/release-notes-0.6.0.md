@@ -54,7 +54,7 @@ transactions and less traffic on the tripcoin
 network. The shorter keys are already supported
 by the network but wallet.dat files containing
 short keys are not compatible with earlier
-versions of Tripcoin-Qt/bitcoind.
+versions of Tripcoin-Qt/tripcoind.
 
 New command-line argument -blocknotify=<command>
 that will spawn a shell process to run <command> 

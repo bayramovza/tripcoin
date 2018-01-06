@@ -6,7 +6,7 @@
 
 #include "ui_helpmessagedialog.h"
 
-#include "bitcoingui.h"
+#include "tripcoingui.h"
 #include "clientmodel.h"
 #include "guiutil.h"
 

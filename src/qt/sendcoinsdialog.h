@@ -25,7 +25,7 @@ QT_END_NAMESPACE
 
 const int defaultConfirmTarget = 25;
 
-/** Dialog for sending bitcoins */
+/** Dialog for sending tripcoins */
 class SendCoinsDialog : public QDialog
 {
     Q_OBJECT

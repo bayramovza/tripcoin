@@ -38,7 +38,7 @@
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>org.bitcoinfoundation.Tripcoin-Qt</string>
+  <string>org.tripcoinfoundation.Tripcoin-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -71,7 +71,7 @@
         <string>application/x-tripcoin-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>bitcoinpaymentrequest</string>
+          <string>tripcoinpaymentrequest</string>
         </array>
       </dict>
     </dict>

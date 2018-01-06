@@ -75,5 +75,5 @@ if [ "x${ENABLE_BITCOIND}${ENABLE_UTILS}${ENABLE_WALLET}" = "x111" ]; then
         fi
     done
 else
-  echo "No rpc tests to run. Wallet, utils, and bitcoind must all be enabled"
+  echo "No rpc tests to run. Wallet, utils, and tripcoind must all be enabled"
 fi

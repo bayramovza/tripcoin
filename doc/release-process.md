@@ -41,7 +41,7 @@ Release Process
 ###fetch and build inputs: (first time, or when dependency versions change)
  
 	mkdir -p inputs
-	wget -P inputs https://bitcoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
+	wget -P inputs https://tripcoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
 	wget -P inputs http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
 
  Register and download the Apple SDK: (see OSX Readme for details)
@@ -157,7 +157,7 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
 - Announce the release:
 
-  - Release sticky on bitcointalk: https://bitcointalk.org/index.php?board=1.0
+  - Release sticky on tripcointalk: https://tripcointalk.org/index.php?board=1.0
 
   - Tripcoin-development mailing list
 

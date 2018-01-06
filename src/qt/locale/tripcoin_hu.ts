@@ -67,11 +67,11 @@
     </message>
     <message>
         <source>These are your Tripcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Ezekről a címekről küldhetsz bitcoint. Mindig ellenőrizd a fogadó címet és a fizetendő összeget, mielőtt elküldöd.</translation>
+        <translation>Ezekről a címekről küldhetsz tripcoint. Mindig ellenőrizd a fogadó címet és a fizetendő összeget, mielőtt elküldöd.</translation>
     </message>
     <message>
         <source>These are your Tripcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Ezekkel a címekkel fogadhatsz bitcoint. Ajánlott minden tranzakcióhoz egy új fogadó címet használni.</translation>
+        <translation>Ezekkel a címekkel fogadhatsz tripcoint. Ajánlott minden tranzakcióhoz egy új fogadó címet használni.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -1010,7 +1010,7 @@
     </message>
     <message>
         <source>Cannot start tripcoin: click-to-pay handler</source>
-        <translation>A bitcoint nem lehet elindítani: click-to-pay handler</translation>
+        <translation>A tripcoint nem lehet elindítani: click-to-pay handler</translation>
     </message>
     </context>
 <context>
@@ -2196,7 +2196,7 @@
     </message>
     <message>
         <source>Insufficient funds</source>
-        <translation>Nincs elég bitcoinod.</translation>
+        <translation>Nincs elég tripcoinod.</translation>
     </message>
     <message>
         <source>Loading block index...</source>

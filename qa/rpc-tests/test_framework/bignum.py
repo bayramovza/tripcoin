@@ -2,7 +2,7 @@
 #
 # bignum.py
 #
-# This file is copied from python-bitcoinlib.
+# This file is copied from python-tripcoinlib.
 #
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.

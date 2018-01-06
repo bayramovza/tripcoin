@@ -15,7 +15,7 @@ How to Upgrade
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), uninstall all
 earlier versions of Tripcoin, then run the installer (on Windows) or just copy
-over /Applications/Tripcoin-Qt (on Mac) or bitcoind/tripcoin-qt (on Linux).
+over /Applications/Tripcoin-Qt (on Mac) or tripcoind/tripcoin-qt (on Linux).
 
 If you are upgrading from version 0.7.2 or earlier, the first time you run
 0.9.0 your blockchain files will be re-indexed, which will take anywhere from 
@@ -86,7 +86,7 @@ For 0.9.0 we switched to an autotools-based build system instead of individual
 (q)makefiles.
 
 Using the standard "./autogen.sh; ./configure; make" to build Tripcoin-Qt and
-bitcoind makes it easier for experienced open source developers to contribute 
+tripcoind makes it easier for experienced open source developers to contribute 
 to the project.
 
 Be sure to check doc/build-*.md for your platform before building from source.
@@ -94,11 +94,11 @@ Be sure to check doc/build-*.md for your platform before building from source.
 Tripcoin-cli
 -------------
 
-Another change in the 0.9 release is moving away from the bitcoind executable
+Another change in the 0.9 release is moving away from the tripcoind executable
 functioning both as a server and as a RPC client. The RPC client functionality
 ("tell the running tripcoin daemon to do THIS") was split into a separate
 executable, 'tripcoin-cli'. The RPC client code will eventually be removed from
-bitcoind, but will be kept for backwards compatibility for a release or two.
+tripcoind, but will be kept for backwards compatibility for a release or two.
 
 `walletpassphrase` RPC
 -----------------------
@@ -197,13 +197,13 @@ Command-line options:
 - New option: -nospendzeroconfchange to never spend unconfirmed change outputs
 - New option: -zapwallettxes to rebuild the wallet's transaction information
 - Rename option '-tor' to '-onion' to better reflect what it does
-- Add '-disablewallet' mode to let bitcoind run entirely without wallet (when
+- Add '-disablewallet' mode to let tripcoind run entirely without wallet (when
   built with wallet)
 - Update default '-rpcsslciphers' to include TLSv1.2
 - make '-logtimestamps' default on and rework help-message
 - RPC client option: '-rpcwait', to wait for server start
 - Remove '-logtodebugger'
-- Allow `-noserver` with bitcoind
+- Allow `-noserver` with tripcoind
 
 Block-chain handling and storage:
 
@@ -254,7 +254,7 @@ Protocol and network:
 - Improve logging of failed connections
 - Bump protocol version to 70002
 - Add some additional logging to give extra network insight
-- Added new DNS seed from bitcoinstats.com
+- Added new DNS seed from tripcoinstats.com
 
 Validation:
 

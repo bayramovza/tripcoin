@@ -300,7 +300,7 @@
     </message>
     <message>
         <source>Send coins to a Tripcoin address</source>
-        <translation>Poslať bitcoins na adresu</translation>
+        <translation>Poslať tripcoins na adresu</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -1702,7 +1702,7 @@
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>Potvrdiť odoslanie bitcoins</translation>
+        <translation>Potvrdiť odoslanie tripcoins</translation>
     </message>
     <message>
         <source>%1 to %2</source>

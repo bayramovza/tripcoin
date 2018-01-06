@@ -17,8 +17,8 @@ You need the Qt4 run-time libraries to run Tripcoin-Qt. On Debian or Ubuntu:
 
 Unpack the files into a directory and run:
 
-- bin/32/tripcoin-qt (GUI, 32-bit) or bin/32/bitcoind (headless, 32-bit)
-- bin/64/tripcoin-qt (GUI, 64-bit) or bin/64/bitcoind (headless, 64-bit)
+- bin/32/tripcoin-qt (GUI, 32-bit) or bin/32/tripcoind (headless, 32-bit)
+- bin/64/tripcoin-qt (GUI, 64-bit) or bin/64/tripcoind (headless, 64-bit)
 
 
 
@@ -35,7 +35,7 @@ Drag Tripcoin-Qt to your applications folder, and then run Tripcoin-Qt.
 * See the documentation at the [Tripcoin Wiki](https://en.tripcoin.it/wiki/Main_Page)
 for help and more information.
 * Ask for help on [#tripcoin](http://webchat.freenode.net?channels=tripcoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=tripcoin).
-* Ask for help on the [BitcoinTalk](https://bitcointalk.org/) forums, in the [Technical Support board](https://bitcointalk.org/index.php?board=4.0).
+* Ask for help on the [BitcoinTalk](https://tripcointalk.org/) forums, in the [Technical Support board](https://tripcointalk.org/index.php?board=4.0).
 
 Building
 ---------------------
@@ -62,7 +62,7 @@ The Tripcoin repo's [root README](https://github.com/tripcoin/tripcoin/blob/mast
 - [Dnsseed Policy](dnsseed-policy.md)
 
 ### Resources
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/) forums, in the [Development & Technical Discussion board](https://bitcointalk.org/index.php?board=6.0).
+* Discuss on the [BitcoinTalk](https://tripcointalk.org/) forums, in the [Development & Technical Discussion board](https://tripcointalk.org/index.php?board=6.0).
 * Discuss on [#tripcoin-dev](http://webchat.freenode.net/?channels=tripcoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=tripcoin-dev).
 
 ### Miscellaneous

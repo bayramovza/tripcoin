@@ -36,9 +36,9 @@ build_triplet = @build@
 host_triplet = @host@
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(srcdir)/Makefile.am \
-	$(srcdir)/Makefile.in $(srcdir)/libbitcoinconsensus.pc.in \
+	$(srcdir)/Makefile.in $(srcdir)/libtripcoinconsensus.pc.in \
 	$(top_srcdir)/configure \
-	$(top_srcdir)/qa/pull-tester/run-bitcoind-for-test.sh.in \
+	$(top_srcdir)/qa/pull-tester/run-tripcoind-for-test.sh.in \
 	$(top_srcdir)/qa/pull-tester/tests-config.sh.in \
 	$(top_srcdir)/share/qt/Info.plist.in \
 	$(top_srcdir)/share/setup.nsi.in \
@@ -59,9 +59,9 @@ am__aclocal_m4_deps = $(top_srcdir)/build-aux/m4/ax_boost_base.m4 \
 	$(top_srcdir)/build-aux/m4/ax_check_preproc_flag.m4 \
 	$(top_srcdir)/build-aux/m4/ax_gcc_func_attribute.m4 \
 	$(top_srcdir)/build-aux/m4/ax_pthread.m4 \
-	$(top_srcdir)/build-aux/m4/bitcoin_find_bdb48.m4 \
-	$(top_srcdir)/build-aux/m4/bitcoin_qt.m4 \
-	$(top_srcdir)/build-aux/m4/bitcoin_subdir_to_include.m4 \
+	$(top_srcdir)/build-aux/m4/tripcoin_find_bdb48.m4 \
+	$(top_srcdir)/build-aux/m4/tripcoin_qt.m4 \
+	$(top_srcdir)/build-aux/m4/tripcoin_subdir_to_include.m4 \
 	$(top_srcdir)/build-aux/m4/libtool.m4 \
 	$(top_srcdir)/build-aux/m4/ltoptions.m4 \
 	$(top_srcdir)/build-aux/m4/ltsugar.m4 \
@@ -74,9 +74,9 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/src/config/tripcoin-config.h
-CONFIG_CLEAN_FILES = libbitcoinconsensus.pc share/setup.nsi \
+CONFIG_CLEAN_FILES = libtripcoinconsensus.pc share/setup.nsi \
 	share/qt/Info.plist src/test/buildenv.py \
-	qa/pull-tester/run-bitcoind-for-test.sh \
+	qa/pull-tester/run-tripcoind-for-test.sh \
 	qa/pull-tester/tests-config.sh
 CONFIG_CLEAN_VPATH_FILES =
 AM_V_GEN = $(am__v_GEN_@AM_V@)
@@ -386,8 +386,8 @@ ACLOCAL_AMFLAGS = -I build-aux/m4
 SUBDIRS = src
 GZIP_ENV = "-9n"
 @BUILD_BITCOIN_LIBS_TRUE@pkgconfigdir = $(libdir)/pkgconfig
-@BUILD_BITCOIN_LIBS_TRUE@pkgconfig_DATA = libbitcoinconsensus.pc
-BITCOIND_BIN = $(top_builddir)/src/bitcoind$(EXEEXT)
+@BUILD_BITCOIN_LIBS_TRUE@pkgconfig_DATA = libtripcoinconsensus.pc
+BITCOIND_BIN = $(top_builddir)/src/tripcoind$(EXEEXT)
 BITCOIN_QT_BIN = $(top_builddir)/src/qt/tripcoin-qt$(EXEEXT)
 BITCOIN_CLI_BIN = $(top_builddir)/src/tripcoin-cli$(EXEEXT)
 BITCOIN_WIN_INSTALLER = $(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
@@ -413,9 +413,9 @@ OSX_PACKAGING = $(OSX_DEPLOY_SCRIPT) $(OSX_FANCY_PLIST) $(OSX_INSTALLER_ICONS) $
   $(top_srcdir)/contrib/macdeploy/detached-sig-create.sh
 
 COVERAGE_INFO = baseline_filtered_combined.info baseline.info block_test.info \
-  leveldb_baseline.info test_bitcoin_filtered.info total_coverage.info \
+  leveldb_baseline.info test_tripcoin_filtered.info total_coverage.info \
   baseline_filtered.info block_test_filtered.info \
-  leveldb_baseline_filtered.info test_bitcoin_coverage.info test_bitcoin.info
+  leveldb_baseline_filtered.info test_tripcoin_coverage.info test_tripcoin.info
 
 OSX_APP_BUILT = $(OSX_APP)/Contents/PkgInfo $(OSX_APP)/Contents/Resources/empty.lproj \
   $(OSX_APP)/Contents/Resources/tripcoin.icns $(OSX_APP)/Contents/Info.plist \
@@ -477,7 +477,7 @@ $(top_srcdir)/src/config/tripcoin-config.h.in: @MAINTAINER_MODE_TRUE@ $(am__conf
 
 distclean-hdr:
 	-rm -f src/config/tripcoin-config.h src/config/stamp-h1
-libbitcoinconsensus.pc: $(top_builddir)/config.status $(srcdir)/libbitcoinconsensus.pc.in
+libtripcoinconsensus.pc: $(top_builddir)/config.status $(srcdir)/libtripcoinconsensus.pc.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 share/setup.nsi: $(top_builddir)/config.status $(top_srcdir)/share/setup.nsi.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
@@ -485,7 +485,7 @@ share/qt/Info.plist: $(top_builddir)/config.status $(top_srcdir)/share/qt/Info.p
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 src/test/buildenv.py: $(top_builddir)/config.status $(top_srcdir)/src/test/buildenv.py.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
-qa/pull-tester/run-bitcoind-for-test.sh: $(top_builddir)/config.status $(top_srcdir)/qa/pull-tester/run-bitcoind-for-test.sh.in
+qa/pull-tester/run-tripcoind-for-test.sh: $(top_builddir)/config.status $(top_srcdir)/qa/pull-tester/run-tripcoind-for-test.sh.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 qa/pull-tester/tests-config.sh: $(top_builddir)/config.status $(top_srcdir)/qa/pull-tester/tests-config.sh.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
@@ -1073,18 +1073,18 @@ $(BITCOIN_CLI_BIN): FORCE
 @USE_LCOV_TRUE@baseline_filtered_combined.info: leveldb_baseline_filtered.info baseline_filtered.info
 @USE_LCOV_TRUE@	$(LCOV) -a leveldb_baseline_filtered.info -a baseline_filtered.info -o $@
 
-@USE_LCOV_TRUE@test_bitcoin.info: baseline_filtered_combined.info
+@USE_LCOV_TRUE@test_tripcoin.info: baseline_filtered_combined.info
 @USE_LCOV_TRUE@	$(MAKE) -C src/ check
-@USE_LCOV_TRUE@	$(LCOV) -c -d $(abs_builddir)/src -t test_bitcoin -o $@
+@USE_LCOV_TRUE@	$(LCOV) -c -d $(abs_builddir)/src -t test_tripcoin -o $@
 @USE_LCOV_TRUE@	$(LCOV) -z -d $(abs_builddir)/src
 @USE_LCOV_TRUE@	$(LCOV) -z -d $(abs_builddir)/src/leveldb
 
-@USE_LCOV_TRUE@test_bitcoin_filtered.info: test_bitcoin.info
+@USE_LCOV_TRUE@test_tripcoin_filtered.info: test_tripcoin.info
 @USE_LCOV_TRUE@	$(LCOV) -r $< "/usr/include/*" -o $@
 
-@USE_LCOV_TRUE@block_test.info: test_bitcoin_filtered.info
+@USE_LCOV_TRUE@block_test.info: test_tripcoin_filtered.info
 @USE_LCOV_TRUE@	$(MKDIR_P) qa/tmp
-@USE_LCOV_TRUE@	-@TIMEOUT=15 qa/pull-tester/run-bitcoind-for-test.sh $(JAVA) -jar $(JAVA_COMPARISON_TOOL) qa/tmp/compTool 0
+@USE_LCOV_TRUE@	-@TIMEOUT=15 qa/pull-tester/run-tripcoind-for-test.sh $(JAVA) -jar $(JAVA_COMPARISON_TOOL) qa/tmp/compTool 0
 @USE_LCOV_TRUE@	$(LCOV) -c -d $(abs_builddir)/src --t BitcoinJBlockTest -o $@
 @USE_LCOV_TRUE@	$(LCOV) -z -d $(abs_builddir)/src
 @USE_LCOV_TRUE@	$(LCOV) -z -d $(abs_builddir)/src/leveldb
@@ -1092,13 +1092,13 @@ $(BITCOIN_CLI_BIN): FORCE
 @USE_LCOV_TRUE@block_test_filtered.info: block_test.info
 @USE_LCOV_TRUE@	$(LCOV) -r $< "/usr/include/*" -o $@
 
-@USE_LCOV_TRUE@test_bitcoin_coverage.info: baseline_filtered_combined.info test_bitcoin_filtered.info
-@USE_LCOV_TRUE@	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_bitcoin_filtered.info -o $@
+@USE_LCOV_TRUE@test_tripcoin_coverage.info: baseline_filtered_combined.info test_tripcoin_filtered.info
+@USE_LCOV_TRUE@	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_tripcoin_filtered.info -o $@
 
-@USE_LCOV_TRUE@total_coverage.info:  baseline_filtered_combined.info test_bitcoin_filtered.info block_test_filtered.info
-@USE_LCOV_TRUE@	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_bitcoin_filtered.info -a block_test_filtered.info -o $@ | $(GREP) "\%" | $(AWK) '{ print substr($$3,2,50) "/" $$5 }' > coverage_percent.txt
+@USE_LCOV_TRUE@total_coverage.info:  baseline_filtered_combined.info test_tripcoin_filtered.info block_test_filtered.info
+@USE_LCOV_TRUE@	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_tripcoin_filtered.info -a block_test_filtered.info -o $@ | $(GREP) "\%" | $(AWK) '{ print substr($$3,2,50) "/" $$5 }' > coverage_percent.txt
 
-@USE_LCOV_TRUE@test_bitcoin.coverage/.dirstamp:  test_bitcoin_coverage.info
+@USE_LCOV_TRUE@test_tripcoin.coverage/.dirstamp:  test_tripcoin_coverage.info
 @USE_LCOV_TRUE@	$(GENHTML) -s $< -o $(@D)
 @USE_LCOV_TRUE@	@touch $@
 
@@ -1106,16 +1106,16 @@ $(BITCOIN_CLI_BIN): FORCE
 @USE_LCOV_TRUE@	$(GENHTML) -s $< -o $(@D)
 @USE_LCOV_TRUE@	@touch $@
 
-@USE_LCOV_TRUE@cov: test_bitcoin.coverage/.dirstamp total.coverage/.dirstamp
+@USE_LCOV_TRUE@cov: test_tripcoin.coverage/.dirstamp total.coverage/.dirstamp
 
 @USE_COMPARISON_TOOL_TRUE@check-local:
 @USE_COMPARISON_TOOL_TRUE@	$(MKDIR_P) qa/tmp
-@USE_COMPARISON_TOOL_TRUE@	@qa/pull-tester/run-bitcoind-for-test.sh $(JAVA) -jar $(JAVA_COMPARISON_TOOL) qa/tmp/compTool $(COMPARISON_TOOL_REORG_TESTS) 2>&1
+@USE_COMPARISON_TOOL_TRUE@	@qa/pull-tester/run-tripcoind-for-test.sh $(JAVA) -jar $(JAVA_COMPARISON_TOOL) qa/tmp/compTool $(COMPARISON_TOOL_REORG_TESTS) 2>&1
 
 .INTERMEDIATE: $(COVERAGE_INFO)
 
 clean-local:
-	rm -rf test_bitcoin.coverage/ total.coverage/ $(OSX_APP)
+	rm -rf test_tripcoin.coverage/ total.coverage/ $(OSX_APP)
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

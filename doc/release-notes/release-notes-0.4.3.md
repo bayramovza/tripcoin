@@ -1,5 +1,5 @@
-bitcoind version 0.4.3 is now available for download at:
-http://luke.dashjr.org/programs/tripcoin/files/bitcoind-0.4.3/ (until Gavin uploads to SourceForge)
+tripcoind version 0.4.3 is now available for download at:
+http://luke.dashjr.org/programs/tripcoin/files/tripcoind-0.4.3/ (until Gavin uploads to SourceForge)
 
 This is a bugfix-only release based on 0.4.0.
 
@@ -9,7 +9,7 @@ Please report bugs for the daemon only using the issue tracker at github:
 https://github.com/tripcoin/tripcoin/issues
 
 Stable source code is hosted at Gitorious:
-http://gitorious.org/tripcoin/bitcoind-stable/archive-tarball/v0.4.3#.tar.gz
+http://gitorious.org/tripcoin/tripcoind-stable/archive-tarball/v0.4.3#.tar.gz
 
 BUG FIXES
 

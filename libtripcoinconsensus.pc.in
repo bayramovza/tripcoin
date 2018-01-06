@@ -6,6 +6,6 @@ includedir=@includedir@
 Name: Tripcoin Core consensus library
 Description: Library for the Tripcoin consensus protocol.
 Version: @PACKAGE_VERSION@
-Libs: -L${libdir} -lbitcoinconsensus
+Libs: -L${libdir} -ltripcoinconsensus
 Cflags: -I${includedir}
 Requires.private: libcrypto

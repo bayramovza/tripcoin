@@ -40,7 +40,7 @@ SendCoinsEntry::SendCoinsEntry(QWidget *parent) :
     // normal tripcoin address field
     GUIUtil::setupAddressWidget(ui->payTo, this);
     // just a label for displaying tripcoin address(es)
-    ui->payTo_is->setFont(GUIUtil::bitcoinAddressFont());
+    ui->payTo_is->setFont(GUIUtil::tripcoinAddressFont());
 
     // Connect signals
     connect(ui->payAmount, SIGNAL(valueChanged()), this, SIGNAL(payAmountChanged()));

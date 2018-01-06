@@ -1,14 +1,14 @@
-Sample init scripts and service configuration for bitcoind
+Sample init scripts and service configuration for tripcoind
 ==========================================================
 
 Sample scripts and configuration files for systemd, Upstart and OpenRC
 can be found in the contrib/init folder.
 
-    contrib/init/bitcoind.service:    systemd service unit configuration
-    contrib/init/bitcoind.openrc:     OpenRC compatible SysV style init script
-    contrib/init/bitcoind.openrcconf: OpenRC conf.d file
-    contrib/init/bitcoind.conf:       Upstart service configuration file
-    contrib/init/bitcoind.init:       CentOS compatible SysV style init script
+    contrib/init/tripcoind.service:    systemd service unit configuration
+    contrib/init/tripcoind.openrc:     OpenRC compatible SysV style init script
+    contrib/init/tripcoind.openrcconf: OpenRC conf.d file
+    contrib/init/tripcoind.conf:       Upstart service configuration file
+    contrib/init/tripcoind.init:       CentOS compatible SysV style init script
 
 1. Service User
 ---------------------------------
@@ -19,17 +19,17 @@ and group.  They must be created before attempting to use these scripts.
 2. Configuration
 ---------------------------------
 
-At a bare minimum, bitcoind requires that the rpcpassword setting be set
+At a bare minimum, tripcoind requires that the rpcpassword setting be set
 when running as a daemon.  If the configuration file does not exist or this
-setting is not set, bitcoind will shutdown promptly after startup.
+setting is not set, tripcoind will shutdown promptly after startup.
 
 This password does not have to be remembered or typed as it is mostly used
-as a fixed token that bitcoind and client programs read from the configuration
+as a fixed token that tripcoind and client programs read from the configuration
 file, however it is recommended that a strong and secure password be used
 as this password is security critical to securing the wallet should the
 wallet be enabled.
 
-If bitcoind is run with "-daemon" flag, and no rpcpassword is set, it will
+If tripcoind is run with "-daemon" flag, and no rpcpassword is set, it will
 print a randomly generated suitable password to stderr.  You can also
 generate one from the shell yourself like this:
 
@@ -45,17 +45,17 @@ see contrib/debian/examples/tripcoin.conf.
 
 All three configurations assume several paths that might need to be adjusted.
 
-Binary:              /usr/bin/bitcoind
+Binary:              /usr/bin/tripcoind
 Configuration file:  /etc/tripcoin/tripcoin.conf
-Data directory:      /var/lib/bitcoind
-PID file:            /var/run/bitcoind/bitcoind.pid (OpenRC and Upstart)
-                     /var/lib/bitcoind/bitcoind.pid (systemd)
-Lock file:           /var/lock/subsys/bitcoind (CentOS)
+Data directory:      /var/lib/tripcoind
+PID file:            /var/run/tripcoind/tripcoind.pid (OpenRC and Upstart)
+                     /var/lib/tripcoind/tripcoind.pid (systemd)
+Lock file:           /var/lock/subsys/tripcoind (CentOS)
 
 The configuration file, PID directory (if applicable) and data directory
 should all be owned by the tripcoin user and group.  It is advised for security
 reasons to make the configuration file and data directory only readable by the
-tripcoin user and group.  Access to tripcoin-cli and other bitcoind rpc clients
+tripcoin user and group.  Access to tripcoin-cli and other tripcoind rpc clients
 can then be controlled by group membership.
 
 4. Installing Service Configuration
@@ -67,19 +67,19 @@ Installing this .service file consists of just copying it to
 /usr/lib/systemd/system directory, followed by the command
 "systemctl daemon-reload" in order to update running systemd configuration.
 
-To test, run "systemctl start bitcoind" and to enable for system startup run
-"systemctl enable bitcoind"
+To test, run "systemctl start tripcoind" and to enable for system startup run
+"systemctl enable tripcoind"
 
 4b) OpenRC
 
-Rename bitcoind.openrc to bitcoind and drop it in /etc/init.d.  Double
+Rename tripcoind.openrc to tripcoind and drop it in /etc/init.d.  Double
 check ownership and permissions and make it executable.  Test it with
-"/etc/init.d/bitcoind start" and configure it to run on startup with
-"rc-update add bitcoind"
+"/etc/init.d/tripcoind start" and configure it to run on startup with
+"rc-update add tripcoind"
 
 4c) Upstart (for Debian/Ubuntu based distributions)
 
-Drop bitcoind.conf in /etc/init.  Test by running "service bitcoind start"
+Drop tripcoind.conf in /etc/init.  Test by running "service tripcoind start"
 it will automatically start on reboot.
 
 NOTE: This script is incompatible with CentOS 5 and Amazon Linux 2014 as they
@@ -87,11 +87,11 @@ use old versions of Upstart and do not supply the start-stop-daemon utility.
 
 4d) CentOS
 
-Copy bitcoind.init to /etc/init.d/bitcoind. Test by running "service bitcoind start".
+Copy tripcoind.init to /etc/init.d/tripcoind. Test by running "service tripcoind start".
 
-Using this script, you can adjust the path and flags to the bitcoind program by 
+Using this script, you can adjust the path and flags to the tripcoind program by 
 setting the BITCOIND and FLAGS environment variables in the file 
-/etc/sysconfig/bitcoind. You can also use the DAEMONOPTS environment variable here.
+/etc/sysconfig/tripcoind. You can also use the DAEMONOPTS environment variable here.
 
 5. Auto-respawn
 -----------------------------------
